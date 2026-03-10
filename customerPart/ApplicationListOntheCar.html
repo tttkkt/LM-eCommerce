@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application List</title>
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="./assets/css/application.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+    </header>
+    <br><br><br><br>
+    <h1 class="text-3xl text-center font-bold mb-4">Insurance List for VIN:123456790</h1>
+
+      <div class="flex gap-4 absolute right-10">
+        <div class="flex items-center">
+          <div class="status-shown green "></div><span class="ml-1">In progress</span>
+        </div>
+        <div class="flex items-center">
+          <div class="status-shown red"></div><span class="ml-1">Terminated</span>
+        </div>
+        <div class="flex items-center">
+          <div class="status-shown yellow"></div><span class="ml-1">Not initiated</span>
+        </div>
+      </div>
+      <br>
+    <div class="flex justify-center">
+      <div class="block	card w-3/4 md:w-1/2">
+        <div class="container">
+          <div class="left">
+            <div class="status-ind green"></div>
+          </div>
+          <div class="right">
+                Project Name: Full Coverage<br>
+                VIN : 123456790<br>
+                Application Start: 2024-11-27<br>
+                Application End: 2026-11-27<br>
+            <div class="button-wrap">
+              <button class="primary-cta" onclick="window.location.href='./Projectdetails_forAOC.html'">Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="flex justify-center">
+      <div class="block	card w-3/4 md:w-1/2">
+        <div class="container">
+          <div class="left">
+            <div class="status-ind red"></div>
+          </div>
+          <div class="right">
+                Project Name: Medical Payments Coverage (MedPay)<br>
+                VIN : 123456790<br>
+                Application Start: 2021-11-27<br>
+                Application End: 2022-11-27<br>
+            <div class="button-wrap">
+              <button class="primary-cta" onclick="window.location.href='./Projectdetails_forAOC.html'">Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center">
+      <div class="block	card w-3/4 md:w-1/2">
+        <div class="container">
+          <div class="left">
+            <div class="status-ind yellow"></div>
+          </div>
+          <div class="right">
+                Project Name: Medical Payments Coverage (MedPay)<br>
+                VIN : 123456790<br>
+                Application Start: 2027-11-27<br>
+                Application End: 2028-11-27<br>
+            <div class="button-wrap">
+              <button class="primary-cta" onclick="window.location.href='./Projectdetails_forAOC.html'">Details</button>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+    </footer>
+</body>
+
+<script>
+    $(function () {
+        $("header").load("./assets/sub/header_Login.html", function() {
+          $("#AppTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+            $("#AppTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500');
+        });
+        $("footer").load("./assets/sub/footer.html");
+    });
+</script>
+</html>

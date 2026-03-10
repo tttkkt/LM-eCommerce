@@ -1,0 +1,227 @@
+<style>
+
+  .custom-menu {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  }
+
+  .custom-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+  }
+
+  .custom-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+
+  .custom-menu li:hover {
+    background-color: #e0e0e0;
+  }
+</style>
+<nav class="bg-white fixed w-full h-12 z-50 top-0 start-0 border-b custom-gray-100">
+    <div class="max-w-screen-xl flex flex-wrap justify-between items-center mx-auto">
+        <a href="./homePage.html" class="flex mt-2 space-x-3 rtl:space-x-reverse">
+            <img src="./assets/img/Legend-Logo.png" class="h-8" alt="Legend Logo" />
+            <span class="text-lg mt-1 ">Insurance</span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse pt-1 gap-2">
+            <button onclick="window.location.href='../../purchaseCar/category.html'" type="button" class="text-white m-1 bg-green-500 hover:bg-green-600 focus:ring-4 focus:outline-none focus:ring-blue-300  rounded-lg text-sm px-4 py-2 text-center font-bold">
+                Buy Cars
+            </button>
+            <button id="btnOpenLogin" type="button" class="text-white m-1 bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-4 py-2 text-center font-bold">
+                Login
+            </button>
+        </div>
+
+      <div class="items-center justify-center hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+          <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white">
+              <li>
+                  <a href="./homePage.html" id="homeTag" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-bold" aria-current="page">Home</a>
+              </li>
+              <li>
+                  <a href="./aboutUs.html" id="aboutTag" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-bold">About</a>
+              </li>
+              <li>
+                  <a href="./service.html" id="servicesTag" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-bold">Services</a>
+              </li>
+              <li>
+                  <a href="./support.html" id="supportTag" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 font-bold">Support</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav>
+
+<div id="login-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed z-50 bg-black bg-opacity-50  w-full md:inset-0 h-[calc(100%-1rem)]">
+  <div id="interLogin" class="flex items-center justify-center h-screen">
+    <div class="relative px-32 w-[500px] bg-white shadow rounded-3xl sm:p-2 ">
+      <div class="max-w-md mx-auto">
+        <div class="flex items-center space-x-5 justify-center">
+          <img src="./assets/img/Legend-Logo.png" width="100px">
+          <span>Insurance</span>
+        </div>
+        <h2 class="text-center text-xl font-bold mb-4">Customer Login</h2>
+        <div class="mt-5">
+          <label class="font-semibold text-sm text-gray-600 pb-1 block" for="login">E-mail</label>
+          <input class="border border-blue-300 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" type="text" id="login"/>
+          <label class="font-semibold text-sm text-gray-600 pb-1 block" for="password">Password</label>
+          <input class="border border-blue-300 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" type="password" id="password"/>
+        </div>
+        <div id="error-message" class="flex justify-center hidden">
+          <span class="text-red-400 top-0">The Email or password is incorrect</span>
+        </div>
+        <div class="text-right mb-4">
+          <a class="text-xs font-display font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" href="#">Forgot Password?</a>
+        </div>
+        <button  onclick="window.location.href = './UserHome.html';" class="flex items-center justify-center py-2 my-4 border bg-white hover:bg-gray-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg">
+          <img src="./assets/img/google_icon.png" width="20px">
+          <span class="ml-2">Sign in with Google</span>
+        </button>
+        <button onclick="window.location.href = './UserHome.html';" class="flex items-center justify-center py-2 my-4 border bg-white hover:bg-gray-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg mt-4">
+          <img src="./assets/img/apple_icon.png" width="20px">
+          <span class="ml-2">Sign in with Apple</span>
+        </button>
+        <div class="mt-5">
+          <button id="loginButton" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none rounded-lg" type="submit">
+            Log in
+          </button>
+        </div>
+        <div class="flex items-center justify-between mt-4">
+          <span class="w-1/5 border-b md:w-1/4"></span>
+          <a class="text-xs text-gray-500 uppercase hover:underline" href="./register_client.html">or sign up</a>
+          <span class="w-1/5 border-b md:w-1/4"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div id="custom-menu" class="custom-menu">
+  <ul>
+    <li onclick="window.location.href = './homePage.html';">home Page</li>
+      <li onclick="window.location.href = './support.html';">Support</li>
+      <li onmousedown="copyFunction()">Copy</li>
+      <li onmousedown="pasteFunction()">Paste</li>
+  </ul>
+</div>
+
+<script>
+
+
+//login function
+  $('#loginButton').on('click', function() {
+    console.log('loginButton clicked');
+    const email = $('#login').val();
+    const password = $('#password').val();
+    const errorMessage = $('#error-message');
+
+    if (email === 'ken@vtc.com' && password === 'Aa123456') {
+        window.location.href = './UserHome.html';
+    } else {
+      console.log('loginButton clicked 2');
+        errorMessage.removeClass('hidden');
+        errorMessage.addClass('block');
+        setTimeout(function() {
+          errorMessage.removeClass('block');
+          errorMessage.addClass('hidden');
+        }, 2000);
+    }
+});
+
+  // Get the modal
+  var modal = document.getElementById("login-modal");
+  var interLogin = document.getElementById('interLogin');
+  // Get the button that opens the modal
+  var btn = document.getElementById("btnOpenLogin");
+
+  // When the user clicks the button, open the modal
+  btn.onclick = function() {
+    modal.classList.remove("hidden");
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == interLogin) {
+      modal.classList.add("hidden");
+    }
+  }
+
+
+
+  var activeElement = null;
+        document.getElementsByTagName('body')[0].addEventListener('contextmenu', function(event) {
+            event.preventDefault();
+            const menu = document.getElementById('custom-menu');
+          menu.style.display = 'block';
+          menu.style.left = `${event.pageX}px`;
+          menu.style.top = `${event.pageY}px`;
+          activeElement = document.activeElement;
+        });
+        document.addEventListener('click', function() {
+          const menu = document.getElementById('custom-menu');
+          menu.style.display = 'none';
+        });
+      function copyFunction() {
+          let selectedText = '';
+
+          if (window.getSelection) {
+              selectedText = window.getSelection().toString();
+              console.log('Selected text using window.getSelection:', selectedText);
+          } else if (document.selection && document.selection.type != "Control") {
+              selectedText = document.selection.createRange().text;
+              console.log('Selected text using document.selection:', selectedText);
+          }
+
+          if (selectedText) {
+
+              navigator.clipboard.writeText(selectedText)
+                  .then(() => {
+                      console.log('Text copied to clipboard:', selectedText);
+                  })
+                  .catch(err => {
+                      console.error('Failed to copy text:', err);
+                  });
+          } else {
+              console.log('No text selected to copy.');
+          }
+      }
+
+      function pasteFunction() {
+          // Check if the Clipboard API is supported
+          if (!navigator.clipboard) {
+              console.error('Clipboard API not supported');
+              return;
+          }
+
+          // Use Clipboard API to get text from the clipboard
+          navigator.clipboard.readText()
+              .then(text => {
+                  insertTextAtCursor(text); // Assuming you have a function to insert text at the cursor
+                  console.log('Text pasted from clipboard:', text);
+              })
+              .catch(err => {
+                  console.error('Failed to read text from clipboard:', err);
+              });
+      }
+
+      // Example function to insert text at the cursor position
+      function insertTextAtCursor(text) {
+          if (activeElement && activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
+              const start = activeElement.selectionStart;
+              const end = activeElement.selectionEnd;
+              activeElement.value = activeElement.value.substring(0, start) + text + activeElement.value.substring(end);
+              activeElement.selectionStart = activeElement.selectionEnd = start + text.length;
+          } else {
+              console.log('No input or textarea is focused');
+          }
+      }
+</script>

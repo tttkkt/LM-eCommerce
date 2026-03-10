@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legend Insurance</title>
+    <link href="./assets/css/output.css" rel="stylesheet" />
+
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+  </head>
+  <style>
+    .autocomplete-suggestions {
+      position: absolute;
+      z-index: 10;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      width: 100%;
+    }
+    .autocomplete-suggestion {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .autocomplete-suggestion:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+
+  <body>
+    <header>
+    </header>
+
+    <center class="flex flex-col min-h-screen mt-12 ">
+      <img src="./assets/img/support.png" class="mb-4" />
+      <h1
+        class="mb-4 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+        <a >Legend Insurance</a>
+      </h1>
+      <span class="mb-4 text-2xl">All my life, I've been in
+                                  love with its colour,
+                                  its brilliance,
+                                  its divine heaviness.</span>
+
+      <div class="rounded-xl border-2 mx-auto shadow p-4 ">
+        <h4 class="text-2xl font-bold">Quote Generation</h4>
+        <form action="#" id="InsuranceForm">
+          <div class="grid gap-4 sm:grid-cols-2 sm:gap-6 m-8">
+            <source id="carList" class="block col-span-2 w-full">
+            <!-- Mileage -->
+            <div class="w-60 h-12 relative flex rounded-xl ">
+              <input
+                required
+                class="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-[#4070f4] focus:shadow-md"
+                id="Mileage"
+                type="number"
+                autocomplete="off"
+                min="0" />
+              <label
+                class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 peer-focus:top-0 peer-focus:left-3 font-light text-base peer-focus:text-sm peer-focus:text-[#4070f4] peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] duration-150"
+                for="Mileage">
+                Mileage</label>
+              <label
+                class="absolute top-1/2 translate-y-[-50%] font-light right-8">km</label>
+            </div>
+
+            <!-- VehicleYear -->
+            <div class="w-60 h-12 relative flex rounded-xl ">
+              <input
+                required
+                class="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-[#4070f4] focus:shadow-md"
+                id="VehicleYear"
+                type="number"
+                autocomplete="off"
+                min="0" />
+              <label
+                class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 peer-focus:top-0 peer-focus:left-3 font-light text-base peer-focus:text-sm peer-focus:text-[#4070f4] peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] duration-150"
+                for="VehicleYear">
+                Vehicle Year</label>
+            </div>
+
+            <!-- DrivingExperience -->
+            <div class="w-60 h-12 relative flex rounded-xl ">
+              <input
+                required
+                class="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-[#4070f4] focus:shadow-md"
+                id="DrivingExperience"
+                type="number"
+                autocomplete="off"
+                min="0"  />
+              <label
+                class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 peer-focus:top-0 peer-focus:left-3 font-light text-base peer-focus:text-sm peer-focus:text-[#4070f4] peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] duration-150"
+                for="DrivingExperience">
+                Driving Experience</label>
+            </div>
+
+            <!-- yourAge -->
+            <div class="w-60 h-12 relative flex rounded-xl ">
+              <input
+                required
+                class="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-[#4070f4] focus:shadow-md"
+                id="yourAge"
+                type="number"
+                autocomplete="off"
+                min="0" />
+              <label
+                class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 peer-focus:top-0 peer-focus:left-3 font-light text-base peer-focus:text-sm peer-focus:text-[#4070f4] peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] duration-150"
+                for="yourAge">
+                Your Age</label>
+            </div>
+          </div>
+          <button type="submit"
+            class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:ring">
+            Evaluate
+          </button>
+          <button type="reset"
+            class="inline-flex items-center px-5 py-2.5  mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-slate-700 rounded-lg hover:ring">
+            clear
+          </button>
+        </form>
+        <div id="showNumber"class="mt-8 hidden">
+          <span class="text-4xl">$</span>
+          <div class="number inline text-4xl font-sans" id="number">0</div>
+        </div>
+      </div>
+    </center>
+    <footer>
+    </footer>
+  </body>
+
+
+
+</html>
+
+
+<script>
+$(function () {
+    $("header").load("./assets/sub/header_NoLogin.html", function() {
+        $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+        $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+    });
+    $("footer").load("./assets/sub/footer.html");
+    $("#carList").load("./assets/sub/carList.html");
+});
+
+</script>
+<script>
+  document.getElementById('InsuranceForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      $('#showNumber').removeClass("hidden");
+      const vModel = document.getElementById('carInput').value;
+      const mileage = document.getElementById('Mileage').value;
+      const vehicleYear = document.getElementById('VehicleYear').value;
+      const drivingExperience = document.getElementById('DrivingExperience').value;
+      const yourAge = document.getElementById('yourAge').value;
+
+      console.log('carInput:', vModel);
+      console.log('Mileage:', mileage);
+      console.log('Vehicle Year:', vehicleYear);
+      console.log('Driving Experience:', drivingExperience);
+      console.log('Your Age:', yourAge);
+      const finalNumber = mileage; 
+      const numDigits = finalNumber.toString().length; 
+      const symbols = ['@', '#', '$', '%', '&', '*', '!', '?']; 
+
+      function formatNumber(number) {
+          return number.toString().padStart(numDigits, '0'); 
+      }
+
+      function generateRandomCombination() {
+          let result = '';
+          for (let i = 0; i < numDigits; i++) {
+              if (Math.random() > 0.5) {
+                  result += symbols[Math.floor(Math.random() * symbols.length)]; 
+              } else {
+                  result += Math.floor(Math.random() * 10); 
+              }
+          }
+          return result; 
+      }
+
+      function animateNumber() {
+          const numberElement = document.getElementById('number');
+          let iterations = 20; 
+          const interval = setInterval(() => {
+              numberElement.textContent = generateRandomCombination();
+              numberElement.style.opacity = 0.5; 
+              setTimeout(() => {
+                  numberElement.style.opacity = 1; 
+              }, 50); 
+          }, 75);
+
+          setTimeout(() => {
+              clearInterval(interval);
+              numberElement.textContent = formatNumber(finalNumber); 
+          }, iterations * 50); 
+      }
+
+      animateNumber();
+      });
+</script>

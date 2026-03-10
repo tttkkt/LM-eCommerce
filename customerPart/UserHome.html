@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legend Insurance</title>
+
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <link href="./assets/css/card1.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  </head>
+  <style>
+    .autocomplete-suggestions {
+      position: absolute;
+      z-index: 10;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      width: 100%;
+    }
+    .autocomplete-suggestion {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .autocomplete-suggestion:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+    <header>
+    </header>
+  <body class="">
+
+
+    <center class="flex flex-col mt-12 ">
+      <h1
+        class="mb-4 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+        <a >Legend Insurance</a>
+      </h1>
+      <span class="mb-4 text-2xl">Don’t let the past steal your present</span>
+    </center>
+
+    <h1 class="text-3xl font-bold text-center mt-12">Your Cars</h1>
+    <div class="containerForCard z-40">
+      <div class="card">
+        <h2>Venom-f5</h2>
+        <i class="fas fa-arrow-right"></i>
+        <p>VIN:128123937</p>
+        <img src="./assets/img/hennessey-venom-f5.webp" class="pic"></img>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="social red">
+          <i onclick="window.location.href='./ApplicationListOntheCar.html'"  class="fa-solid fa-inbox"></i>
+          <i onclick="window.location.href='./addInsuranceForSelectCar.html'" class="fa-solid fa-plus  "></i>
+          <i onclick="alert('Our claims specialist is already on the way.')"  class="fa-solid fa-hand-holding-medical "></i>
+          <i onclick="window.location.href='./supportforLogin.html'"class="fa-solid fa-question"></i>
+        </div>
+        <button style="background-color: #af3939;">
+        </button>
+      </div>
+
+      <div class="card">
+      <h2>Countach</h2>
+      <i class="fas fa-arrow-right"></i>
+      <p>VIN:128123934</p>
+      <img src="./assets/img/lamborghini-countach.webp" class="pic"></img>
+      <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+      </ul>
+      <div class="social blue">
+        <i onclick="window.location.href='./ApplicationListOntheCar.html'" class="fa-solid fa-inbox"></i>
+        <i onclick="window.location.href='./addInsuranceForSelectCar.html'"  class="fa-solid fa-plus"></i>
+        <i onclick="alert('Our claims specialist is already on the way.')" class="fa-solid fa-hand-holding-medical"></i>
+        <i onclick="window.location.href='./supportforLogin.html'"  class="fa-solid fa-question"></i>
+      </div>
+      <button style="background-color: #2b26c3;">
+      </button>
+      </div>
+
+      <div class="card">
+        <h2>Suiza</h2>
+        <i class="fas fa-arrow-right"></i>
+        <p>VIN:128123935</p>
+        <img src="./assets/img/hispano-suiza-carmen-boulogne-official-photos-front-angled.jpg" class="pic"></img>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="social yellow">
+          <i onclick="window.location.href='./ApplicationListOntheCar.html'"  class="fa-solid fa-inbox"></i>
+          <i onclick="window.location.href='./addInsuranceForSelectCar.html'"  class="fa-solid fa-plus"></i>
+          <i onclick="alert('Our claims specialist is already on the way.')" class="fa-solid fa-hand-holding-medical"></i>
+          <i onclick="window.location.href='./supportforLogin.html'" class="fa-solid fa-question"></i>
+        </div>
+        <button style="background-color: #D4D93C;">
+        </button>
+        </div>
+
+
+    </div>
+    <footer>
+    </footer>
+  </body>
+
+
+
+</html>
+<script src="./assets/js/carousel.js"></script>
+
+<script>
+$(function () {
+    $("header").load("./assets/sub/header_Login.html", function() {
+      $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+        $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500');
+    });
+    $("footer").load("./assets/sub/footer.html");
+});
+</script>

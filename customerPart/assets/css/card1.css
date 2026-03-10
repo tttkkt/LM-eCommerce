@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+i {
+  opacity: 0;
+  font-size: 18px;
+  color: #fff;
+  will-change: transform;
+  -webkit-transform: scale(0.1);
+  transform: scale(0.1);
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+h2 {
+  pointer-events: none;
+}
+
+body {
+  background-color: #E6E5E1;
+  width: 100vw;
+  height: 100vh;
+}
+
+.containerForCard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+
+  align-items: center;
+  flex-direction: column;
+}
+.containerForCard .card {
+  position: relative;
+  width: 500px;
+  height: 200px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.containerForCard .card:before {
+  content: "";
+  z-index: 39;
+  position: absolute;
+  top: -10px;
+  left: 32px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #E6E5E1;
+}
+.containerForCard .card:after {
+  content: "";
+  z-index: 39;
+  position: absolute;
+  bottom: -10px;
+  left: 32px;
+  display: block;
+  width: 16px;
+  height: 16px;
+  border-radius: 16px;
+  background-color: #E6E5E1;
+}
+.containerForCard .card ul {
+  z-index: 39;
+  position: absolute;
+  left: 39px;
+  top: 5px;
+  list-style-type: none;
+}
+.containerForCard .card ul li {
+  width: 2px;
+  height: 2px;
+  border-radius: 2px;
+  margin: 6px 0;
+  background-color: #E6E5E1;
+}
+.containerForCard .card h2 {
+  z-index: 39;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  bottom: 0;
+  right: 130px;
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+}
+.containerForCard .card .fa-arrow-right {
+  z-index: 40;
+  position: absolute;
+  right: 75px;
+  bottom: 25px;
+  font-size: 40px;
+  cursor: pointer;
+}
+.containerForCard .card p {
+  z-index: 39;
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  color: #333;
+  opacity: 0.7;
+  font-size: 12px;
+  letter-spacing: 1px;
+  writing-mode: vertical-lr;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.containerForCard .card .pic {
+  z-index: 40;
+  width: 400px;
+  height: 200px;
+  background-image: url('../img/MedPay.png');
+  background-size: 100% 100%;
+  filter: grayscale(100%);
+}
+.containerForCard .card .social {
+  position: absolute;
+  left: 60px;
+  top: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 180px;
+  height: 64px;
+  border-radius: 80px;
+}
+.containerForCard .card .social i:nth-of-type(1) {
+  -webkit-transition-delay: 0.2s;
+  transition-delay: 0.2s;
+}
+.containerForCard .card .social i:nth-of-type(2) {
+  -webkit-transition-delay: 0.15s;
+  transition-delay: 0.15s;
+}
+.containerForCard .card .social i:nth-of-type(3) {
+  -webkit-transition-delay: 0.1s;
+  transition-delay: 0.1s;
+}
+.containerForCard .card .social i:nth-of-type(4) {
+  -webkit-transition-delay: 0.0s;
+  transition-delay: 0.0s;
+}
+.containerForCard .card:hover i {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.containerForCard .card .social i:hover {
+  color: black; /* Change to your desired color */
+  -webkit-transition: color 0.001s ease-in; /* Add a quick transition for color change */
+  transition: color 0.001s ease-in;
+}
+
+
+.containerForCard .card .social.red i:hover {
+  color: #af3939;
+}
+
+.containerForCard .card .social.blue i:hover {
+  color: #2b26c3;
+}
+
+.containerForCard .card .social.yellow i:hover {
+  color: #D4D93C;
+}
+.containerForCard .card button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 30px;
+  height: 30px;
+  background-color: #DA4D1D;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  mix-blend-mode: hard-light;
+}
+.containerForCard .card button i {
+  font-size: 3rem;
+}
+.containerForCard .card:hover button {
+  transform: scale(16.5);
+}
+.containerForCard .card:hover p {
+  color: #fff;
+}
+.containerForCard .card:hover .pic {
+  filter: grayscale(0);
+}
+
+.dr {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 100px;
+}
+
+/*# sourceMappingURL=test.css.map */

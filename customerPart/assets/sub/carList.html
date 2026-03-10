@@ -1,0 +1,82 @@
+
+  <!-- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"> -->
+  <style>
+    .autocomplete-suggestions {
+      position: absolute;
+      z-index: 10;
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      max-height: 150px;
+      overflow-y: auto;
+      width: calc(100% - 2px); /* Adjust width to match the input field */
+      top: 100%; /* Position below the input field */
+      left: 0;
+    }
+    .autocomplete-suggestion {
+      padding: 8px;
+      cursor: pointer;
+    }
+    .autocomplete-suggestion:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+  <div class=" h-12 relative flex rounded-xl">
+    <input
+      required=""
+      class="peer w-full bg-transparent outline-none px-4 text-base rounded-xl bg-white border border-[#4070f4] focus:shadow-md"
+      id="carInput"
+      type="text"
+      autocomplete="off"
+    />
+    <label
+      class="absolute top-1/2 translate-y-[-50%] bg-white left-4 px-2 peer-focus:top-0 peer-focus:left-3 font-light text-base peer-focus:text-sm peer-focus:text-[#4070f4] peer-valid:-top-0 peer-valid:left-3 peer-valid:text-sm peer-valid:text-[#4070f4] duration-150"
+      for="carInput">
+      Vehicles Model</label>
+    <div id="autocomplete-list" class="autocomplete-suggestions hidden"></div>
+
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      const input = document.getElementById('carInput');
+    const suggestionBox = document.getElementById('autocomplete-list');
+    const suggestions = ['Toyota Camry', 'Honda Civic', 'Ford Mustang', 'Chevrolet Malibu', 'Mercedes-Benz S-Class', 'BMW 3 Series', 'Audi A4', 'Nissan Altima', 'Hyundai Sonata', 'Kia Optima', 'Volkswagen Passat', 'Subaru Impreza', 'Mazda 6', 'Lexus ES', 'Acura TLX', 'Infiniti Q50', 'Volvo S60', 'Jaguar XE', 'Alfa Romeo Giulia', 'Tesla Model S'];
+[
+    { "make": "Toyota Camry" },
+    { "make": "Honda Civic" },
+    { "make": "Ford Mustang" },
+    { "make": "Chevrolet Camaro" },
+    { "make": "BMW 3 Series" },
+    { "make": "ken 87" }
+  ]
+    input.addEventListener('input', () => {
+      const value = input.value.toLowerCase();
+      suggestionBox.innerHTML = '';
+      if (value) {
+        const filteredSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(value));
+        filteredSuggestions.forEach(suggestion => {
+          const suggestionItem = document.createElement('div');
+          suggestionItem.classList.add('autocomplete-suggestion');
+          suggestionItem.textContent = suggestion;
+          suggestionItem.addEventListener('click', () => {
+            input.value = suggestion;
+            suggestionBox.innerHTML = '';
+            suggestionBox.classList.add('hidden');
+          });
+          suggestionBox.appendChild(suggestionItem);
+        });
+        suggestionBox.classList.remove('hidden');
+      } else {
+        suggestionBox.classList.add('hidden');
+      }
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!input.contains(event.target) && !suggestionBox.contains(event.target)) {
+        suggestionBox.classList.add('hidden');
+      }
+    });
+     });
+
+  </script>

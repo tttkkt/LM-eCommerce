@@ -1,0 +1,147 @@
+<link href="./assets/css/output.css" rel="stylesheet" />
+<link href="./assets/css/register.css" rel="stylesheet" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+
+<div id="login-modal" tabindex="-1" aria-hidden="true" class="modal-overlay">
+    <div id="interLogin" class="modal-container">
+      <div class="modal-content">
+        <div class="modal-inner">
+          <div onclick="window.location.href = './staff_unlogin.html';">
+            <svg class="inline-block w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"/></svg>
+            <a class="underline">Back</a>
+          </div>
+          <div class="modal-header">
+            <img src="./assets/img/Legend-Logo.png" width="100px">
+            <span>Insurance</span>
+          </div>
+          <h2 class="modal-title">Staff Register</h2>
+          <div class="modal-body">
+            <label class="modal-label" for="login">E-mail</label>
+            <input class="modal-input" type="text" id="login" required/>
+            <small class="hint">Format: example@domain.com</small>
+            <label class="modal-label" for="password1">Password</label>
+            <input class="modal-input" type="password" id="password1" title="input password" required/>
+            <small class="hint">
+              Must be at least 8 characters long, including upper/lowercase, and numbers.</small>
+            <label class="modal-label" for="password2">Repeat Password</label>
+            <input class="modal-input" type="password" id="password2" title="repeat your" required/>
+            <small class="hint">Repeat the password</small>
+          </div>
+          <div class="modal-footer">
+            <button id="BtnRegister" class="modal-button" type="submit">
+              Register
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  //keyup and Verify if the registered password matches the requested password.
+  let timer, timeoutVal = 1000; // time it takes to wait for user to stop typing in ms
+  const registerbtn = document.getElementById("BtnRegister");
+
+  const typer1 = document.getElementById('login');
+  const typer2 = document.getElementById('password1');
+  const typer3 = document.getElementById('password2');
+
+  typer1.addEventListener('input', handleInputEmail);
+  typer2.addEventListener('input', handleInput);
+  typer3.addEventListener('input', handleInputRepeat);
+
+  BtnRegister.style.display = 'none';
+  function BtnRegisterable(){
+  if ( validateInputEmail() && validateInput() && validateInputRepeat()){
+      BtnRegister.style.display = 'block';
+    } else {
+      BtnRegister.style.display = 'none';
+    }
+  }
+  function handleInputEmail(e) {
+      debounce(validateInputEmail, timeoutVal)();
+      BtnRegisterable();
+  }
+
+  function handleInput(e) {
+      debounce(validateInput, timeoutVal)();
+      if(typer3.value !== ""){
+        debounce(validateInputRepeat, timeoutVal)();
+      }
+      BtnRegisterable();
+  }
+
+  function handleInputRepeat(e) {
+      debounce(validateInputRepeat, timeoutVal)();
+      BtnRegisterable();
+  }
+
+
+
+  function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+  var RGEX = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,})/;
+  var EmailPattern =/([a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$)/;
+
+  function validateInputEmail() {
+    if(typer1.value === ""){
+          console.log('Reset Element:', typer1);
+          setBorderColorReset(typer1);
+          return false;
+      }
+      let username = document.getElementById('login').value;
+      let isEmailValid = username.match(EmailPattern);
+      setBorderColor(typer1, isEmailValid);
+      if(!isEmailValid)return false;
+      return true;
+  }
+
+  function validateInput() {
+    if(typer2.value === ""){
+          console.log('Reset Element:', typer2);
+          setBorderColorReset(typer2);
+          return false;
+      }
+      let passrepeat1 = document.getElementById('password1').value;
+      let isPasswordValid = passrepeat1.match(RGEX);
+      setBorderColor(typer2, isPasswordValid);
+      if(!isPasswordValid)return false;
+      return true;
+  }
+
+  function validateInputRepeat() {
+      if(typer3.value === ""){
+          console.log('Reset Element:', typer3);
+          setBorderColorReset(typer3);
+          return false;
+      }
+      let passrepeat1 = document.getElementById('password1').value;
+      let passrepeat2 = document.getElementById('password2').value;
+      let isPasswordValid = passrepeat1.match(RGEX);
+      let isPasswordMatch = passrepeat1 === passrepeat2;
+      setBorderColor(typer3, isPasswordMatch && isPasswordValid);
+      if(!(isPasswordMatch && isPasswordValid))return false;
+      return true;
+  }
+
+  function setBorderColor(element, isValid) {
+      element.style.borderColor = isValid ? 'green' : '#EA6549';
+      element.style.borderWidth = '2px';
+  }
+
+  function setBorderColorReset(element) {
+      console.log('Reset Element:', element);
+      element.style.borderColor = '#63b3ed';
+      element.style.borderWidth = '1px';
+  }
+  </script>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<style>
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(-40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+</style>
+</head>
+
+<body>
+    <header></header>
+<center class="mt-32">
+<label>
+    <h5 class="mb-2 text-8xl font-bold tracking-tight text-gray-900 ">About Us</h5>
+    <p class="font-normal text-4xl w-1/2 text-gray-700 ">
+        <br>
+        <span class="font-bold">
+            Welcome to Legend Insurance
+        </span>
+        <br>
+        <br>
+        At Legend Insurance, we believe that peace of mind is priceless. Founded on the principles of trust, reliability, and excellence, we have been providing top-notch insurance solutions to our clients for over a decade. Our commitment to safeguarding your future is what drives us to deliver comprehensive and customized insurance plans that cater to your unique needs.
+        <br>
+        <br>
+        <span class="font-bold">
+            Our Mission
+        </span>
+        <br>
+        <br>
+        Our mission is to offer unparalleled insurance services that provide security and assurance to individuals, families, and businesses. We strive to build lasting relationships with our clients by understanding their needs and delivering solutions that exceed their expectations. At Legend Insurance, we are dedicated to being a reliable partner in your journey towards a secure future.
+    </p>
+</label>
+
+</center>
+
+    <footer></footer>
+</body>
+<source id="login_modal_page">
+<source id="register_modal_page">
+
+<script>
+    $(function () {
+      $("header").load("./assets/sub/header_NoLogin.html", function() {
+        // 確保 header 加載完成後再執行這段代碼
+        $("#aboutTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+        $("#aboutTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 ');
+    })
+      $("footer").load("./assets/sub/footer.html");
+      $("#login_modal_page").load("./assets/sub/login_modal_page.html");
+      $("#register_modal_page").load("./assets/sub/register_modal_page.html");
+
+    });
+
+    // text-white bg-blue-700
+  </script>
+</html>
+
+
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support</title>
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+    </header>
+    <br><br><br><br>
+    <div class="container mx-auto p-6">
+        <h1 class="text-4xl font-bold mb-6">Support Page</h1>
+        <br>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">1. Frequently Asked Questions (FAQ)</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#insurance-policies" class="text-blue-500 hover:underline">Insurance Policies</a></li>
+                <li class="mb-2"><a href="#claims-process" class="text-blue-500 hover:underline">Claims Process</a></li>
+                <li class="mb-2"><a href="#premium-payments" class="text-blue-500 hover:underline">Premium Payments</a></li>
+                <li class="mb-2"><a href="#policy-inquiry" class="text-blue-500 hover:underline">Policy Inquiry</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">2. Contact Information</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#customer-service-phone" class="text-blue-500 hover:underline">Customer Service Phone</a></li>
+                <li class="mb-2"><a href="#email-support" class="text-blue-500 hover:underline">Email Support</a></li>
+                <li class="mb-2"><a href="#live-chat" class="text-blue-500 hover:underline">Live Chat</a></li>
+                <li class="mb-2"><a href="#mailing-address" class="text-blue-500 hover:underline">Mailing Address</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">3. Claims Guide</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#steps-to-file-a-claim" class="text-blue-500 hover:underline">Steps to File a Claim</a></li>
+                <li class="mb-2"><a href="#required-documents" class="text-blue-500 hover:underline">Required Documents</a></li>
+                <li class="mb-2"><a href="#processing-time" class="text-blue-500 hover:underline">Processing Time</a></li>
+                <li class="mb-2"><a href="#online-claim-form" class="text-blue-500 hover:underline">Online Claim Form</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">4. Policy Management</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#view-policy" class="text-blue-500 hover:underline">View Policy</a></li>
+                <li class="mb-2"><a href="#update-information" class="text-blue-500 hover:underline">Update Information</a></li>
+                <li class="mb-2"><a href="#download-documents" class="text-blue-500 hover:underline">Download Documents</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">5. Payment Information</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#payment-methods" class="text-blue-500 hover:underline">Payment Methods</a></li>
+                <li class="mb-2"><a href="#payment-history" class="text-blue-500 hover:underline">Payment History</a></li>
+                <li class="mb-2"><a href="#automatic-payment-setup" class="text-blue-500 hover:underline">Automatic Payment Setup</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">6. Technical Support</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#website-usage-guide" class="text-blue-500 hover:underline">Website Usage Guide</a></li>
+                <li class="mb-2"><a href="#common-technical-issues" class="text-blue-500 hover:underline">Common Technical Issues</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">7. Complaints and Feedback</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#complaint-procedure" class="text-blue-500 hover:underline">Complaint Procedure</a></li>
+                <li class="mb-2"><a href="#feedback-form" class="text-blue-500 hover:underline">Feedback Form</a></li>
+            </ul>
+        </div>
+
+        <div class="mb-8">
+            <h2 class="text-2xl font-semibold mb-4">8. Resources and Articles</h2>
+            <ul class="list-disc pl-5">
+                <li class="mb-2"><a href="#insurance-knowledge" class="text-blue-500 hover:underline">Insurance Knowledge</a></li>
+                <li class="mb-2"><a href="#safety-tips" class="text-blue-500 hover:underline">Safety Tips</a></li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+    </footer>
+</body>
+
+<script>
+    $(function () {
+        $("header").load("./assets/sub/header_Login.html", function() {
+          $("#supportTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+            $("#supportTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500');
+        });
+        $("footer").load("./assets/sub/footer.html");
+    });
+</script>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legend Insurance</title>
+
+    <link href="./assets/css/output.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="./assets/css/application.css" rel="stylesheet" />
+  </head>
+    <header>
+    </header>
+  <body>
+
+
+    <center class="flex flex-col mt-12 ">
+      <h1
+        class="mb-4 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl">
+        <a >Legend Insurance</a>
+      </h1>
+      <span class="mb-4 text-2xl">Don’t let the past steal your present</span>
+
+      <h1 class="text-3xl text-center font-bold mb-4">Approval List</h1>
+      <br>
+
+
+    </center>
+
+    <div class="flex justify-center">
+      <div class="block	card w-3/4 md:w-1/2">
+        <div class="container">
+          <div class="left">
+            <div class="status-ind yellow"></div>
+          </div>
+          <div class="right">
+                Project Name: Medical Payments Coverage (MedPay)<br>
+                Email: ken@vtc.com<br>
+                Name: Ken lau<br>
+                VIN : 123456792<br>
+                Application Date: 2024-11-29<br>
+                <label for="price">Quotations:</label>
+              <input id="price" type="number" class="w-3/5">
+            <div class="button-wrap">
+              <button class="primary-cta" onclick="window.location.href='./Projectdetails_forStaff.html'">Details</button>
+            </div>
+            <div class="button-wrap">
+              <button class="text-green-500 hover:text-green-600" onclick="alert('approval')">Approval</button>
+              <button class="text-red-500 hover:text-red-600" onclick="alert('rejected')">Rejected</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex justify-center">
+      <div class="block	card w-3/4 md:w-1/2">
+        <div class="container">
+          <div class="left">
+            <div class="status-ind yellow"></div>
+          </div>
+          <div class="right">
+                Project Name: Roadside Assistance Coverage<br>
+                Email: ken@vtc.com<br>
+                Name: Ken lau<br>
+                VIN : 123456789<br>
+                Application Date: 2021-10-10<br>
+                <label for="price">Quotations:</label>
+                <input id="price" type="number" class="w-3/5">
+            <div class="button-wrap">
+              <button class="primary-cta" onclick="window.location.href='./Projectdetails_forStaff.html'">Details</button>
+            </div>
+            <div class="button-wrap">
+              <button class="text-green-500 hover:text-green-600" onclick="alert('approval')">Approval</button>
+              <button class="text-red-500 hover:text-red-600" onclick="alert('rejected')">Rejected</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+    </footer>
+  </body>
+
+
+
+</html>
+<script src="./assets/js/carousel.js"></script>
+
+<script>
+$(function () {
+    $("header").load("./assets/sub/header_Login_staff.html", function() {
+      $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+        $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500');
+    });
+    $("footer").load("./assets/sub/footer.html");
+});
+</script>

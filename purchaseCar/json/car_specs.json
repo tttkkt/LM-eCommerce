@@ -1,0 +1,47 @@
+{
+    "Model 007": {
+        "image": "car_img/compare-1.png",
+        "acceleration": "0-60 mph in 2.5s",
+        "topSpeed": "200 mph",
+        "range": "350 miles",
+        "price": "From HK$288,000",
+        "power": "700 hp",
+        "torque": "650 lb-ft",
+        "weight": "3,500 lbs",
+        "driveTrain": "All-Wheel Drive",
+        "battery": "100 kWh",
+        "chargingTime": "30 min (10-80%)",
+        "seating": "2",
+        "body": "Carbon Fiber Monocoque"
+    },
+    "GT Series": {
+        "image": "car_img/compare-2.png",
+        "acceleration": "0-60 mph in 2.8s",
+        "topSpeed": "195 mph",
+        "range": "400 miles",
+        "price": "From HK$366,000",
+        "power": "650 hp",
+        "torque": "700 lb-ft",
+        "weight": "3,800 lbs",
+        "driveTrain": "Rear-Wheel Drive",
+        "battery": "120 kWh",
+        "chargingTime": "35 min (10-80%)",
+        "seating": "2+2",
+        "body": "Aluminum Space Frame"
+    },
+    "Racing Edition": {
+        "image": "car_img/compare-3.png",
+        "acceleration": "0-60 mph in 2.3s",
+        "topSpeed": "215 mph",
+        "range": "300 miles",
+        "price": "From HK$482,000",
+        "power": "800 hp",
+        "torque": "750 lb-ft",
+        "weight": "3,200 lbs",
+        "driveTrain": "All-Wheel Drive",
+        "battery": "95 kWh",
+        "chargingTime": "25 min (10-80%)",
+        "seating": "2",
+        "body": "Carbon Fiber with Active Aero"
+    }
+    }

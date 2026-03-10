@@ -1,0 +1,299 @@
+#cameraInfo {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-family: monospace;
+  font-size: 12px;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+body {
+  background-color: #ffffff;
+  color: #1d1d1f;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0;
+  position: relative;
+  height: calc(100vh - 60px); 
+}
+
+.content-column {
+  position: fixed;
+  width: 400px;
+  height: calc(100vh - 110px);
+  overflow-y: auto;
+  padding-right: 40px;
+  padding-left: 10px;
+  /* Scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+/* Webkit scrollbar styling */
+.content-column::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-column::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.content-column::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.content-column::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.content-wrapper {
+  min-width: 345px;
+  padding: 40px 0;
+}
+
+#car_img {
+  margin-left: 350px;
+  margin-top: 10px;
+  flex-grow: 1;
+  height: 100%;
+  position: relative;
+  z-index: -1;
+}
+
+.car-image {
+  margin-top: 200px;
+  margin-left: 47px;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#model-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+#model-container canvas {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(175, 76, 126);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.delivery {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.model-options {
+  margin-bottom: 30px;
+}
+
+.option {
+  background-color: #fff;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.model-options .option {
+  cursor: pointer;
+  border: 2px solid transparent;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  background-color: #f5f5f7;
+  margin-bottom: 15px;
+}
+
+.model-options .option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.model-options .option.selected {
+  border-color: #0071e3;
+  background-color: #f0f7ff;
+}
+
+.option:hover {
+  border-color: #007bff;
+}
+
+.option h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.option p {
+  margin: 5px 0;
+}
+
+.price {
+  font-weight: 700;
+  color: #007bff;
+}
+
+.customization h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.color-options, .wheel-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.color-bubble, .wheel-bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.color-bubble:hover, .wheel-bubble:hover {
+  border-color: #007bff;
+}
+
+.stone-gray { background-color: #7f7f7f; }
+.black { background-color: #000; }
+.white { background-color: #fff; border: 1px solid #e0e0e0; }
+.red { background-color: #ff0000; }
+
+.color-bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.color-bubble.selected {
+  border: 2px solid #007bff;
+  transform: scale(1.1);
+}
+
+.color-bubble:hover {
+  transform: scale(1.1);
+}
+
+.wheel-options {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.wheel-bubble {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #007bff;
+  overflow: hidden;
+}
+
+.wheel-bubble.selected {
+  border-color: #007bff;
+}
+
+.wheel-bubble img {
+  width: 113%;
+  height: auto;
+}
+
+/* Color specific styles */
+.black { background-color: #0F1011; }
+.gold { background-color: #795e40f0; }
+.red { background-color: #5e3939; }
+.purple { background-color: #473a4f; }
+.green { background-color: #0D3622; }
+.blue { background-color: #172e48; }
+
+.privilege { background-image: url('privilege-wheel.jpg'); }
+.sport { background-image: url('sport-wheel.jpg'); }
+.luxury { background-image: url('luxury-wheel.jpg'); }
+
+.wishlist-btn {
+  display: block;
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.wishlist-btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .content-column {
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-right: 20px;
+    overflow-y: visible;
+  }
+
+  #car_img {
+    margin-left: 0;
+    height: 400px;
+  }
+
+  .car-image {
+    height: 400px;
+  }
+}

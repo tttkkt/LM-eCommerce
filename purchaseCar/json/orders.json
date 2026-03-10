@@ -1,0 +1,199 @@
+{
+    "orders": [
+        {
+            "orderNumber": "RR2024112800001",
+            "orderDate": "28 Nov 2024",
+            "status": "Processing",
+            "total": "HK$5,242,000",
+            "vehicle": {
+                "name": "Rolls-Royce Ghost",
+                "image": "car_img/car-black-tran.png",
+                "variant": "Extended Wheelbase - Arctic Black",
+                "options": [
+                    "Seat Type: Rear-Facing",
+                    "Interior Trim: Fine Leather",
+                    "Additional Options: Extended Wheelbase Package"
+                ]
+            },
+            "personalInfo": {
+                "name": "John Smith",
+                "email": "john.smith@email.com",
+                "phone": "+852 9123 4567"
+            },
+            "delivery": {
+                "method": "Standard Delivery (40-60 business days)",
+                "address": "123 Victoria Road",
+                "city": "Hong Kong",
+                "country": "Hong Kong SAR",
+                "estimatedArrival": "16 Jan 2025"
+            },
+            "payment": {
+                "method": "Credit Card Payment",
+                "cardNumber": "**** **** **** 1234",
+                "breakdown": [
+                    { "label": "Base Price", "value": "HK$4,880,000" },
+                    { "label": "Options", "value": "HK$350,000" },
+                    { "label": "Registration Fee", "value": "HK$12,000" },
+                    { "label": "Delivery Fee", "value": "Complimentary" },
+                    { "label": "Total Amount", "value": "HK$5,242,000" }
+                ]
+            }
+        },
+        {
+            "orderNumber": "RR2024112800002",
+            "orderDate": "27 Nov 2024",
+            "status": "Shipped",
+            "total": "HK$6,180,000",
+            "vehicle": {
+                "name": "Rolls-Royce Phantom",
+                "image": "car_img/car-black-tran.png",
+                "variant": "Standard Wheelbase - Diamond White",
+                "options": [
+                    "Seat Type: Rear-Facing",
+                    "Interior Trim: Fine Leather",
+                    "Additional Options: Extended Wheelbase Package"
+                ]
+            },
+            "personalInfo": {
+                "name": "John Smith",
+                "email": "john.smith@email.com",
+                "phone": "+852 9123 4567"
+            },
+            "delivery": {
+                "method": "Standard Delivery (40-60 business days)",
+                "address": "123 Victoria Road",
+                "city": "Hong Kong",
+                "country": "Hong Kong SAR",
+                "estimatedArrival": "16 Jan 2025"
+            },
+            "payment": {
+                "method": "Credit Card Payment",
+                "cardNumber": "**** **** **** 1234",
+                "breakdown": [
+                    { "label": "Base Price", "value": "HK$4,880,000" },
+                    { "label": "Options", "value": "HK$350,000" },
+                    { "label": "Registration Fee", "value": "HK$12,000" },
+                    { "label": "Delivery Fee", "value": "Complimentary" },
+                    { "label": "Total Amount", "value": "HK$5,242,000" }
+                ]
+            }
+        },
+        {
+            "orderNumber": "RR2024112700001",
+            "orderDate": "27 Nov 2024",
+            "status": "Delivered",
+            "total": "HK$4,980,000",
+            "vehicle": {
+                "name": "Rolls-Royce Cullinan",
+                "image": "car_img/car-black-tran.png",
+                "variant": "Standard Wheelbase - Midnight Sapphire",
+                "options": [
+                    "Seat Type: Rear-Facing",
+                    "Interior Trim: Fine Leather",
+                    "Additional Options: Extended Wheelbase Package"
+                ]
+            },
+            "personalInfo": {
+                "name": "John Smith",
+                "email": "john.smith@email.com",
+                "phone": "+852 9123 4567"
+            },
+            "delivery": {
+                "method": "Standard Delivery (40-60 business days)",
+                "address": "123 Victoria Road",
+                "city": "Hong Kong",
+                "country": "Hong Kong SAR",
+                "estimatedArrival": "16 Jan 2025"
+            },
+            "payment": {
+                "method": "Credit Card Payment",
+                "cardNumber": "**** **** **** 1234",
+                "breakdown": [
+                    { "label": "Base Price", "value": "HK$4,880,000" },
+                    { "label": "Options", "value": "HK$350,000" },
+                    { "label": "Registration Fee", "value": "HK$12,000" },
+                    { "label": "Delivery Fee", "value": "Complimentary" },
+                    { "label": "Total Amount", "value": "HK$5,242,000" }
+                ]
+            }
+        },
+        {
+            "orderNumber": "RR2024112600002",
+            "orderDate": "26 Nov 2024",
+            "status": "Processing",
+            "total": "HK$5,880,000",
+            "vehicle": {
+                "name": "Rolls-Royce Spectre",
+                "image": "car_img/car-black-tran.png",
+                "variant": "Extended Wheelbase - Twilight Purple",
+                "options": [
+                    "Seat Type: Rear-Facing",
+                    "Interior Trim: Fine Leather",
+                    "Additional Options: Extended Wheelbase Package"
+                ]
+            },
+            "personalInfo": {
+                "name": "John Smith",
+                "email": "john.smith@email.com",
+                "phone": "+852 9123 4567"
+            },
+            "delivery": {
+                "method": "Standard Delivery (40-60 business days)",
+                "address": "123 Victoria Road",
+                "city": "Hong Kong",
+                "country": "Hong Kong SAR",
+                "estimatedArrival": "16 Jan 2025"
+            },
+            "payment": {
+                "method": "Credit Card Payment",
+                "cardNumber": "**** **** **** 1234",
+                "breakdown": [
+                    { "label": "Base Price", "value": "HK$4,880,000" },
+                    { "label": "Options", "value": "HK$350,000" },
+                    { "label": "Registration Fee", "value": "HK$12,000" },
+                    { "label": "Delivery Fee", "value": "Complimentary" },
+                    { "label": "Total Amount", "value": "HK$5,242,000" }
+                ]
+            }
+        },
+        {
+            "orderNumber": "RR2024112600001",
+            "orderDate": "26 Nov 2024",
+            "status": "Shipped",
+            "total": "HK$5,100,000",
+            "vehicle": {
+                "name": "Rolls-Royce Dawn",
+                "image": "car_img/car-black-tran.png",
+                "variant": "Standard Wheelbase - Sunset Gold",
+                "options": [
+                    "Seat Type: Rear-Facing",
+                    "Interior Trim: Fine Leather",
+                    "Additional Options: Extended Wheelbase Package"
+                ]
+            },
+            "personalInfo": {
+                "name": "John Smith",
+                "email": "john.smith@email.com",
+                "phone": "+852 9123 4567"
+            },
+            "delivery": {
+                "method": "Standard Delivery (40-60 business days)",
+                "address": "123 Victoria Road",
+                "city": "Hong Kong",
+                "country": "Hong Kong SAR",
+                "estimatedArrival": "16 Jan 2025"
+            },
+            "payment": {
+                "method": "Credit Card Payment",
+                "cardNumber": "**** **** **** 1234",
+                "breakdown": [
+                    { "label": "Base Price", "value": "HK$4,880,000" },
+                    { "label": "Options", "value": "HK$350,000" },
+                    { "label": "Registration Fee", "value": "HK$12,000" },
+                    { "label": "Delivery Fee", "value": "Complimentary" },
+                    { "label": "Total Amount", "value": "HK$5,242,000" }
+                ]
+            }
+        }
+    ]
+}

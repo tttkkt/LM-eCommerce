@@ -1,0 +1,189 @@
+body {
+  background-color: #000;
+  color: #ffffff;
+  line-height: 1.47059;
+  font-weight: 400;
+  letter-spacing: -0.022em;
+  font-family: "SF Pro Text", "SF Pro Icons", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+header {
+  background-color: #000;
+  border-bottom: 1px solid #000;;
+}
+
+#model-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.content-overlay {
+  position: relative;
+  z-index: 2;
+  pointer-events: none; /* clicks pass through */
+}
+/* Add pointer-events back to interactive elements */
+.content-overlay header,
+.content-overlay .container,
+.content-overlay button,
+.content-overlay a,
+.content-overlay .option,
+.content-overlay .color-bubble,
+.content-overlay .wheel-bubble {
+    pointer-events: auto;
+}
+
+.menu-link {
+  color: #f0f0f0;
+}
+
+#LMlogo, .cart-link img{
+  filter: invert(100%);
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 777px;
+}
+
+.content-wrapper {
+  min-width: 345px;
+  background-color: rgba(0, 0, 0, 0.028);
+  padding: 20px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.car-image {
+  max-width: 1000px;
+  min-height: 800px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: rgb(182, 89, 135);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.delivery {
+  font-size: 16px;
+  color: #b4b4b4;
+  margin-bottom: 30px;
+}
+
+.model-options {
+  margin-bottom: 30px;
+}
+
+.option {
+  background-color: transparent;
+  border: 2px solid #666;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.option:hover {
+  border-color: #007bff;
+}
+
+.option h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.option p {
+  margin: 5px 0;
+}
+
+.price {
+  font-weight: 700;
+  color: #2d88e9;
+}
+
+.customization h3 {
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.color-options, .wheel-options {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.color-bubble, .wheel-bubble {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.color-bubble:hover, .wheel-bubble:hover {
+  border-color: #007bff;
+}
+
+.stone-gray { background-color: #7f7f7f; }
+.black { background-color: #000; }
+.white { background-color: #fff; border: 1px solid #e0e0e0; }
+.red { background-color: #ff0000; }
+.blue { background-color: rgb(37, 93, 176); }
+
+.wishlist-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color:rgb(1,113,227);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 35px;
+  margin-bottom: 80px;
+}
+
+.wishlist-btn:hover {
+  background-color: rgb(10, 121, 231);
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column-reverse;
+  }
+
+  .content-column {
+    width: 100%;
+    padding-right: 0;
+    margin-top: 30px;
+  }
+
+  .image-column {
+    margin-bottom: 30px;
+  }
+}

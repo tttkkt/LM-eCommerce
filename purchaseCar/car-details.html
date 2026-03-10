@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<head>
+    <title>Lily Royce - Shopping Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+    <script src="js/wishlist.js"></script>
+    <script src="js/car-details.js"></script>
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link rel="stylesheet" href="css/car-details_style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div id="header-placeholder"></div>
+  <div id="wishlist-placeholder"></div>
+  
+  <div class="container">
+    <div class="content-column">
+    <div class="content-wrapper">
+      <h1>New</h1>
+      <h2>Lily Royce</h2>
+      <p class="delivery">Estimated Delivery: 1 - 2 months</p>
+      
+      <div class="model-options">
+        <div class="option selected" data-model="rear-wheel">
+          <h3>Rear-Wheel Drive</h3>
+          <p>511 km Range</p>
+          <p class="price">HK$234,200</p>
+        </div>
+        <div class="option" data-model="long-range">
+          <h3>Long Range</h3>
+          <p>All-Wheel Drive</p>
+          <p>669 Km Range</p>
+          <p class="price">HK$277,200</p>
+        </div>
+        <div class="option" data-model="performance">
+          <h3>Performance</h3>
+          <p>All-Wheel Drive</p>
+          <p>244 km/h Top Speed</p>
+          <p class="price">HK$333,300</p>
+        </div>
+      </div>
+      
+      <div class="customization">
+        <h3 class="color-name">Color - Stone Gray <span class="price">HK$97,000</span></h3>
+        <div class="color-options">
+          <div class="color-bubble black selected" data-color="black"></div>
+          <div class="color-bubble gold" data-color="gold"></div>
+          <div class="color-bubble red" data-color="red"></div>
+          <div class="color-bubble purple" data-color="purple"></div>
+          <div class="color-bubble green" data-color="green"></div>
+          <div class="color-bubble blue" data-color="blue"></div>
+        </div>
+
+        
+        <h3>Wheels - 18" Privilege Wheels <span class="price">included</span></h3>
+        <div class="wheel-options">
+          <div class="wheel-bubble privilege selected">
+            <img src="../publicMedia/carwheel.png" alt="Car Wheel">
+          </div>
+        </div>
+      </div>
+      
+      <button class="wishlist-btn">Add to Wish List</button>
+    </div>
+    </div>
+
+    <div id="car_img">
+      <img src="car_img/car-black.jpeg" alt="Tella-model" class="car-image" >
+    </div>
+
+  </div>
+  <footer>
+    <p>© 2024 Legend Motor Limited. All rights reserved.</p>
+  </footer>
+  <script>
+    $(document).ready(function() {
+        $("#header-placeholder").load("header.html");
+        $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+            // Initialize sidebar functionality
+            initializeSidebar();
+        });
+    });
+  </script>
+</body>
+</html>

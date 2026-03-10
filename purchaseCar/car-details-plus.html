@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head>
+    <title>James Bond Model 007 - Shopping Page</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link rel="stylesheet" href="css/car-plus_style.css">
+    <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div id="header-placeholder"></div>
+  </header>
+      <script>
+      $(document).ready(function() {
+          $("#header-placeholder").load("header.html");
+      });
+  </script>
+  
+  <div class="container">
+    <div class="content-column">
+    <div class="content-wrapper">
+      <h1>New</h1>
+      <h2>Tella Model 007</h2>
+      <p class="delivery">Estimated Delivery: 1 - 2 months</p>
+      
+      <div class="model-options">
+        <div class="option">
+          <h3>Rear-Wheel Drive</h3>
+          <p>511 km Range</p>
+          <p class="price">HK$234,200</p>
+        </div>
+        <div class="option">
+          <h3>Long Range</h3>
+          <p>All-Wheel Drive</p>
+          <p>669 Km Range</p>
+          <p class="price">HK$277,200</p>
+        </div>
+        <div class="option">
+          <h3>Performance</h3>
+          <p>All-Wheel Drive</p>
+          <p>244 km/h Top Speed</p>
+          <p class="price">HK$333,300</p>
+        </div>
+      </div>
+      
+      <div class="customization">
+        <h3>Color - Stone Gray <span class="price">HK$97,000</span></h3>
+        <div class="color-options">
+          <div class="color-bubble stone-gray"></div>
+          <div class="color-bubble black"></div>
+          <div class="color-bubble white"></div>
+          <div class="color-bubble red"></div>
+        </div>
+        
+        <h3>Wheels - 18" Privilege Wheels <span class="price">included</span></h3>
+        <div class="wheel-options">
+          <div class="wheel-bubble privilege"></div>
+          <div class="wheel-bubble sport"></div>
+          <div class="wheel-bubble luxury"></div>
+        </div>
+      </div>
+      
+      <button class="wishlist-btn">Add to Wish List</button>
+    </div>
+    </div>
+
+    <div id="car_img">
+      <div id="model-container"></div>
+    </div>
+
+  </div>
+  <footer>
+    <p>© 2024 Legend Motor Limited. All rights reserved.</p>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/mrdoob/three.js@r128/examples/js/controls/OrbitControls.js"></script>
+<script type="module">
+  // Get the container element
+  const container = document.getElementById('model-container');
+
+  // Set up Three.js scene
+  const scene = new THREE.Scene();
+  {
+      const near = 10;
+      const far = 1000;
+      const color = 'white';
+      const density = 0.002;
+      scene.fog = new THREE.FogExp2(color, density);
+      scene.background = new THREE.Color(color);
+  }
+
+  // Set up the camera
+  const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+  camera.position.set(20.99, 6.53, 26.52);
+  camera.rotation.set(-13.84, 37.55, 8.54);
+
+  // Set up the renderer
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(container.clientWidth, container.clientHeight);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.0;
+  renderer.setClearColor(0xffffff);
+  container.appendChild(renderer.domElement);
+
+  // Add camera controls
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true;
+  controls.dampingFactor = 0.05;
+  controls.screenSpacePanning = true;
+  controls.minDistance = 10;
+  controls.maxDistance = 500;
+
+  // Lighting setup
+  const ambientLight = new THREE.AmbientLight(0x404040, 2.7);
+  scene.add(ambientLight);
+
+  const directionalLight1 = new THREE.DirectionalLight(0xffffff, 3.6);
+  directionalLight1.position.set(5, 5, 5).normalize();
+  scene.add(directionalLight1);
+
+  const directionalLight2 = new THREE.DirectionalLight(0xffffff, 2.9);
+  directionalLight2.position.set(-5, -5, 5).normalize();
+  scene.add(directionalLight2);
+
+  const pointLight = new THREE.PointLight(0xffffff, 3, 490);
+  pointLight.position.set(0, 10,0);
+  scene.add(pointLight);
+
+  // Load the GLTF model
+  const loader = new THREE.GLTFLoader();
+
+  loader.load('./car-model/scene.gltf', (gltf) => {
+      const model = gltf.scene;
+      scene.add(model);
+      
+      // Center and scale the model
+      const box = new THREE.Box3().setFromObject(model);
+      const center = box.getCenter(new THREE.Vector3());
+      model.position.sub(center);
+      
+      const scale = 50 / box.getSize(new THREE.Vector3()).length();
+      model.scale.setScalar(scale);
+      
+      model.position.y += 0;
+      model.position.x += 1;
+      model.position.z -= 1;
+
+      const mixer = new THREE.AnimationMixer(model);
+      const action = mixer.clipAction(gltf.animations[0]);
+      action.play();
+
+      function animate() {
+          requestAnimationFrame(animate);
+          mixer.update(0.01);
+          controls.update();
+          renderer.render(scene, camera);
+      }
+
+      animate();
+  });
+
+  // Handle window resize
+  window.addEventListener('resize', function () {
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+  });
+</script>
+<script>
+  $(document).ready(function() {
+      $("#header-placeholder").load("header.html", function() {
+      $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+      $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+  });
+      $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+          initializeSidebar();
+      });
+  });
+</script>
+</body>
+</html>

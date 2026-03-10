@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check out - Lily Royce</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/wishlist-process.js"></script>
+    <script src="js/checkout.js"></script>
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link rel="stylesheet" href="css/checkout_style.css">
+    <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div id="wishlist-placeholder"></div>
+
+    <div class="container">
+        <div class="checkout-header">
+            <h1>Complete Your Purchase</h1>
+            <p>Please provide your information to finalize your purchase</p>
+        </div>
+
+        <div class="checkout-progress">
+            <div class="progress-step">
+                <div class="step-number active">1</div>
+                <div class="step-title active">Vehicle</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">2</div>
+                <div class="step-title">Details</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">3</div>
+                <div class="step-title">Payment</div>
+            </div>
+            <div class="progress-step">
+                <div class="step-number">4</div>
+                <div class="step-title">Confirmation</div>
+            </div>
+        </div>
+
+
+        <div class="checkout-form">
+            <!-- Step 1: Vehicle Configuration -->
+            <div class="checkout-step active" id="step1">
+                <div class="vehicle-summary">
+                    <div class="vehicle-details">
+                        <img src="car_img/car-black-tran.png" alt="Selected Vehicle" class="vehicle-image">
+                        <div class="vehicle-info">
+                            <h3>Rolls-Royce Ghost</h3>
+                            <p class="vehicle-price">Extended Wheelbase - Black</p>
+                        </div>
+                    </div>
+                    <div class="price-summary">
+                        <div class="price-row">
+                            <span>Base Price</span>
+                            <span>HK$4,880,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Options</span>
+                            <span>HK$350,000</span>
+                        </div>
+                        <div class="price-row">
+                            <span>Registration Fee</span>
+                            <span>HK$12,000</span>
+                        </div>
+                        <div class="price-row price-total">
+                            <span>Total</span>
+                            <span>HK$5,242,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Vehicle Configuration</h2>
+                    <div class="form-group">
+                        <label for="exterior-color">Seat Type</label>
+                        <select id="exterior-color" required>
+                            <option value="">Select Seat</option>
+                            <option value="black" selected>Rear-Facing</option>
+                            <option value="silver">Forward-Facing</option>
+                            <option value="white">Booster Seat</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="interior-trim">Interior Trim</label>
+                        <select id="interior-trim" required>
+                            <option value="">Select Trim</option>
+                            <option value="leather" selected>Fine Leather</option>
+                            <option value="premium">Premium Leather</option>
+                            <option value="exclusive">Exclusive Suite</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="step-buttons">
+                    <button type="button" class="btn" onclick="nextStep(2)">Continue to Details</button>
+                </div>
+            </div>
+
+            <!-- Step 2: Personal Details -->
+            <div class="checkout-step" id="step2">
+                <div class="form-section">
+                    <h2>Personal Information</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="Sam" required>
+                            <span class="error-message" id="firstName-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Sir" required>
+                            <span class="error-message" id="lastName-error"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="john.doe@example.com" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" placeholder="1234567890" required>
+                        <span class="error-message" id="phone-error"></span>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Delivery Information</h2>
+                    <div class="delivery-options">
+                        <div class="delivery-option" onclick="selectDelivery(this)">
+                            <h3>Standard Delivery</h3>
+                            <p>40-60 business days</p>
+                            <p>Complimentary</p>
+                        </div>
+                        <div class="delivery-option" onclick="selectDelivery(this)">
+                            <h3>Priority Delivery</h3>
+                            <p>18-28 business days</p>
+                            <p>HK$50,000</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Delivery Address</label>
+                        <input type="text" id="address" placeholder="123 Main St" required>
+                        <span class="error-message" id="address-error"></span>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="Hong Kong" required>
+                            <span class="error-message" id="city-error"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="postalCode">Country / Region</label>
+                            <input type="text" id="postalCode" placeholder="Hong Kong" required>
+                            <span class="error-message" id="postalCode-error"></span>
+                        </div>
+                    </div>
+                </div>                
+
+                <div class="step-buttons">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Back</button>
+                    <button type="button" class="btn" onclick="nextStep(3)">Continue to Payment</button>
+                </div>
+            </div>
+
+
+            <!-- Step 3: Payment -->
+            <div class="checkout-step" id="step3">
+                <div class="form-section">
+                    <h2>Payment Method</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method selected" onclick="selectPayment(this)">
+                            <i class="fas fa-credit-card"></i>
+                            <h3>Credit Card</h3>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment(this)">
+                            <i class="fas fa-university"></i>
+                            <h3>Bank Transfer</h3>
+                        </div>
+                        <div class="payment-method" onclick="selectPayment(this)">
+                            <i class="fas fa-handshake"></i>
+                            <h3>Financing</h3>
+                        </div>
+                    </div>
+
+                    <div id="credit-card-form">
+                        <div class="form-group">
+                            <label for="cardNumber">Card Number</label>
+                            <div class="card-input-wrapper" style="position: relative;">
+                                <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                <div id="card-type-icon" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%);">
+                                    <!-- Card icon will be displayed here -->
+                                </div>
+                            </div>
+                            <span class="error-message" id="cardNumber-error"></span>
+                        </div>                     
+                        <div class="card-input-group">
+                            <div class="form-group">
+                                <label for="cardName">Cardholder Name</label>
+                                <input type="text" id="cardName">
+                            </div>
+                            <div class="form-group">
+                                <label for="expiry">Expiry Date</label>
+                                <input type="text" id="expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvv">CVV</label>
+                                <input type="text" id="cvv" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step-buttons">
+                        <button type="button" class="btn btn-secondary" onclick="prevStep(2)">Back</button>
+                        <a href="#" class="btn2 btn--activate" id="btnActivation">
+                            <span class="btn__icon"></span>
+                             <span class="btn__text" data-wait="Waiting" data-after="Success">Place Order</span>
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+
+            <!--Step 4: Confirmation-->
+            <div class="checkout-step" id="step4">
+                <div class="confirmation-message">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>Thank You for Your Purchase!</h2>
+                    <p class="order-number">Order Number: #RR2024112800001</p>
+                    <p>Your favourite vehicle order has been confirmed.</p>
+                    <p>A detailed confirmation has been sent to your email: john.smith@email.com</p>
+                    
+                    <div class="summary-sections">
+                        <!-- Vehicle Configuration Summary -->
+                        <div class="summary-section">
+                            <h3>Vehicle Configuration</h3>
+                            <div class="vehicle-summary-card">
+                                <img src="car_img/car-black-tran.png" alt="Rolls-Royce Ghost" class="summary-vehicle-image">
+                                <div class="vehicle-config-details">
+                                    <h4>Rolls-Royce Ghost</h4>
+                                    <p>Extended Wheelbase - Arctic Black</p>
+                                    <ul>
+                                        <li>Seat Type: Rear-Facing</li>
+                                        <li>Interior Trim: Fine Leather</li>
+                                        <li>Additional Options: Extended Wheelbase Package</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Personal Details Summary -->
+                        <div class="summary-section">
+                            <h3>Personal Information</h3>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Name:</span>
+                                    <span class="detail-value">John Smith</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Email:</span>
+                                    <span class="detail-value">john.smith@email.com</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Phone:</span>
+                                    <span class="detail-value">+852 9123 4567</span>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Delivery Information -->
+                        <div class="summary-section">
+                            <h3>Delivery Information</h3>
+                            <div class="details-grid">
+                                <div class="detail-item">
+                                    <span class="detail-label">Delivery Method:</span>
+                                    <span class="detail-value">Standard Delivery (40-60 business days)</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Address:</span>
+                                    <span class="detail-value">123 Victoria Road</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">City:</span>
+                                    <span class="detail-value">Hong Kong</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Country/Region:</span>
+                                    <span class="detail-value">Hong Kong SAR</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="detail-label">Estimated Arrival Date</span>
+                                    <span class="detail-value">16 Jan 2025</span>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Payment Information -->
+                        <div class="summary-section">
+                            <h3>Payment Information</h3>
+                            <div class="payment-summary">
+                                <div class="payment-method-info">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Credit Card Payment</span>
+                                    <p>**** **** **** 1234</p>
+                                </div>
+                                <div class="price-breakdown">
+                                    <div class="price-item">
+                                        <span>Base Price</span>
+                                        <span>HK$4,880,000</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Options</span>
+                                        <span>HK$350,000</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Registration Fee</span>
+                                        <span>HK$12,000</span>
+                                    </div>
+                                    <div class="price-item">
+                                        <span>Delivery Fee</span>
+                                        <span>Complimentary</span>
+                                    </div>
+                                    <div class="price-item total">
+                                        <span>Total Amount</span>
+                                        <span>HK$5,242,000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-download">
+                            <i class="fas fa-download"></i> Download PDF
+                        </button>
+                        <button type="button" class="btn" onclick="window.location.href='index.html'">Return to Home</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insurance promotion -->
+            <div class="insurance-promotion">
+                <div class="promotion-header">
+                    <div class="shield-icon">
+                        <i><img id="carple" src="../publicMedia/carple-logo.png"></i>
+                    </div>
+                    <h3>Protect Your Investment with our <span style="font-weight: 500;">CarpleCare</span></h3>
+                    <p>Secure your vehicle with our plan</p>
+                </div>
+
+                <div class="insurance-options">
+                    <div class="insurance-card">
+                        <div class="insurance-card-header">
+                            <i class="fas fa-star"></i>
+                            <h4>Premium Protection</h4>
+                        </div>
+                        <div class="insurance-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Comprehensive coverage up to HK$6,000,000</li>
+                                <li><i class="fas fa-check"></i> 24/7 Roadside assistance</li>
+                                <li><i class="fas fa-check"></i> Zero depreciation claim</li>
+                                <li><i class="fas fa-check"></i> Personal accident cover</li>
+                            </ul>
+                        </div>
+                        <div class="insurance-price">
+                            <span class="price">HK$24,800</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <button class="btn btn-insurance">Get Protected Now</button>
+                    </div>
+
+                    <div class="insurance-card featured">
+                        <div class="recommended-badge">Recommended</div>
+                        <div class="insurance-card-header">
+                            <i id="crown" class="fas fa-crown"></i>
+                            <h4>Elite Coverage</h4>
+                        </div>
+                        <div class="insurance-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> All Premium Protection benefits</li>
+                                <li><i class="fas fa-check"></i> Extended warranty coverage</li>
+                                <li><i class="fas fa-check"></i> Luxury car replacement</li>
+                                <li><i class="fas fa-check"></i> Priority claims processing</li>
+                            </ul>
+                        </div>
+                        <div class="insurance-price">
+                            <span class="price">HK$32,600</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <button class="btn btn-insurance featured">Get Elite Protection</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="footer-legal">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">Accessibility</a>
+            <a href="#">Site Map</a>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2024 Legend Motors Limited. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        $(document).ready(function() {
+            $("#header-placeholder").load("header.html", function() {
+                $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+                $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+            });
+            
+            $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+                initializeSidebar();
+            });
+        });
+    </script>
+    <script>
+     document.addEventListener('DOMContentLoaded', function() {
+    const cardNumberInput = document.getElementById('cardNumber');
+    
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', function(e) {
+            // Remove any non-digit characters
+            let value = e.target.value.replace(/\D/g, '');
+            
+            // Format the number with spaces every 4 digits
+            let formattedValue = value.replace(/(\d{4})(?=\d)/g, '$1 ');
+            e.target.value = formattedValue;
+
+            // Validate card type and number
+            const cardType = getCardType(value);
+            const isValid = validateCardNumber(value);
+            displayCardStatus(cardType, isValid, value);
+        });
+    }
+});
+
+function getCardType(number) {
+    const patterns = {
+        visa: /^4/,
+        mastercard: /^5[1-5]/,
+        amex: /^3[47]/,
+        discover: /^6(?:011|5)/,
+        dinersclub: /^3(?:0[0-5]|[68])/,
+        jcb: /^(?:2131|1800|35)/
+    };
+
+    for (const [card, pattern] of Object.entries(patterns)) {
+        if (pattern.test(number)) {
+            return card;
+        }
+    }
+    return 'unknown';
+}
+
+// Luhn Algorithm implementation
+function validateCardNumber(number) {
+    if (!number || number.length < 13) return false;
+    
+    let sum = 0;
+    let isEven = false;
+    
+    // Loop through values starting from the rightmost one
+    for (let i = number.length - 1; i >= 0; i--) {
+        let digit = parseInt(number.charAt(i));
+
+        if (isEven) {
+            digit *= 2;
+            if (digit > 9) {
+                digit -= 9;
+            }
+        }
+
+        sum += digit;
+        isEven = !isEven;
+    }
+
+    return (sum % 10) === 0;
+}
+
+function displayCardStatus(cardType, isValid, number) {
+    const iconContainer = document.getElementById('card-type-icon');
+    const errorMessage = document.getElementById('cardNumber-error');
+    
+    if (!iconContainer || !errorMessage) return;
+
+    const iconMap = {
+        visa: '<i class="fab fa-cc-visa" style="color: #1A1F71; font-size: 24px;"></i>',
+        mastercard: '<i class="fab fa-cc-mastercard" style="color: #EB001B; font-size: 24px;"></i>',
+        amex: '<i class="fab fa-cc-amex" style="color: #2E77BC; font-size: 24px;"></i>',
+        discover: '<i class="fab fa-cc-discover" style="color: #FF6000; font-size: 24px;"></i>',
+        dinersclub: '<i class="fab fa-cc-diners-club" style="color: #0079BE; font-size: 24px;"></i>',
+        jcb: '<i class="fab fa-cc-jcb" style="color: #0B4EA2; font-size: 24px;"></i>',
+        unknown: '<i class="fas fa-credit-card" style="color: #888888; font-size: 24px;"></i>'
+    };
+
+    // Show card type icon
+    iconContainer.innerHTML = iconMap[cardType] || iconMap.unknown;
+
+    // Validate card number length based on card type
+    const cardLengths = {
+        visa: [16],
+        mastercard: [16],
+        amex: [15],
+        discover: [16],
+        dinersclub: [14],
+        jcb: [16],
+        unknown: [13, 14, 15, 16, 17, 18, 19]
+    };
+
+    // Only validate if we have a complete number
+    if (number.length > 0) {
+        const validLength = cardLengths[cardType].includes(number.length);
+        
+        if (!validLength) {
+            errorMessage.textContent = 'Invalid card number length';
+            errorMessage.style.color = '#dc3545';
+            iconContainer.style.opacity = '0.5';
+        } else if (!isValid) {
+            errorMessage.textContent = 'Invalid card number';
+            errorMessage.style.color = '#dc3545';
+            iconContainer.style.opacity = '0.5';
+        } else {
+            errorMessage.textContent = 'Valid card number';
+            errorMessage.style.color = '#28a745';
+            iconContainer.style.opacity = '1';
+        }
+    } else {
+        errorMessage.textContent = '';
+        iconContainer.style.opacity = '1';
+    }
+}
+
+// Add input restrictions and formatting for other fields
+document.addEventListener('DOMContentLoaded', function() {
+    const cardNumber = document.getElementById('cardNumber');
+    const expiry = document.getElementById('expiry');
+    const cvv = document.getElementById('cvv');
+
+    if (cardNumber) cardNumber.maxLength = 19; // 16 digits + 3 spaces
+    
+    if (expiry) {
+        expiry.maxLength = 5;
+        expiry.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length >= 2) {
+                value = value.slice(0,2) + '/' + value.slice(2);
+            }
+            e.target.value = value;
+        });
+    }
+    
+    if (cvv) {
+        cvv.maxLength = 4;
+        cvv.addEventListener('input', function(e) {
+            e.target.value = e.target.value.replace(/\D/g, '');
+        });
+    }
+});
+
+        </script>
+        <script>
+        $(document).ready(function(){
+  $('#btnActivation').click(function(){
+    if(!$('#btnActivation').hasClass(('btn--activated'))){
+         $('#btnActivation').removeClass('btn--activate');
+    $('#btnActivation').addClass('btn--waiting');
+    setTimeout(function(){
+      removeWaiting();
+    }, 3000); 
+    }
+
+  });
+  
+  function removeWaiting(){
+      $('#btnActivation').removeClass('btn--waiting');
+      $('#btnActivation').addClass('btn--activated');
+      // Wait 1 more second before showing confirmation
+      setTimeout(function() {
+                    // Hide step 3
+                    document.getElementById('step3').classList.remove('active');
+                    // Show step 4
+                    document.getElementById('step4').classList.add('active');
+                    // Update progress indicator
+                    nextStep(4);
+                    updateProgressIndicator(4);
+                }, 1900);
+  }
+  
+});
+        </script>
+        <script>
+            document.querySelectorAll('.btn-insurance').forEach(button => {
+            button.addEventListener('click', function() {
+                // Redirect to insurance details page
+                window.location.href = '../customerPart/UserHome.html';
+            });
+        });
+        </script>
+</body>
+</html>

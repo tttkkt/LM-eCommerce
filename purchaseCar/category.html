@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vehicle Ordering - LM</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="js/wishlist.js"></script>
+        <script src="js/search-bar.js"></script>
+        <script src="js/carousel.js"></script>
+        <script src="js/cateBtn-collapse.js"></script>
+        <link rel="stylesheet" href="css/category_style.css">
+        <link rel="stylesheet" href="css/nav_style.css">
+        <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    </head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div id="wishlist-placeholder"></div>
+
+    <div class="banner">
+        <div class="banner-image">
+          <img src="car_img/carBanner2.png" alt="Luxury car banner">
+        </div>
+        <div class="banner-content">
+            <div class="content-wrapper">
+                <h1>Perfect. Vehicle. Legend No.1</h1>
+                <p>Discover an extensive collection of premium vehicles</p>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="title">Find the vehicles you're looking for.</h2>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <div class="search" id="searchBar">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" id="search-input" placeholder="">
+            <label for="search-input">Search vehicles</label>
+            <button class="clear-button" id="clear-button" aria-label="Clear search">
+            <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Category -->
+    <div class="category-container">
+        <div class="view-toggle">
+            <button class="toggle-btn active" data-view="category">Category</button>
+            <button class="toggle-btn" data-view="brand">Brand</button>
+        </div>
+        <div class="category-line-top"></div>
+        
+        <!-- Category View -->
+        <div id="categoryView" class="view-content active">
+            <div id="CateBtnContainer">
+                <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-car"></i><span>Sedans</span></button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-truck-monster"></i><span>SUVs</span></button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-bolt"></i><span>Electric</span></button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-gas-pump"></i><span>Hybrid</span></button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-tachometer-alt"></i><span>Sports Cars</span></button>
+                <div class="collapse-content">
+                    <button class="cateBtn" onclick="location.href='car-details-max.html';"><i class="fas fa-gem"></i><span>Luxury</span></button>
+                    <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-car-side"></i><span>Compact</span></button>
+                    <button class="cateBtn" onclick="location.href='sports-cars.html';"><i class="fas fa-truck-pickup"></i><span>Trucks</span></button>
+                </div>
+            </div>
+            <button id="collapseBtn" onclick="location.href='#searchBar';">Show more</button>
+        </div>
+    
+        <!-- Brand View -->
+        <div id="brandView" class="view-content">
+            <div id="BrandBtnContainer">
+                <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                    <i class="fa-brands fa-old-republic"></i>
+                    <span>Toyota</span>
+                </button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                    <i class="fa-brands fa-jedi-order"></i>
+                    <span>Honda</span>
+                </button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                    <i class="fa-brands fa-bitcoin"></i>
+                    <span>BMW</span>
+                </button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                    <i class="fa-brands fa-galactic-senate"></i>
+                    <span>Mercedes</span>
+                </button>
+                <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                    <i class="fa-brands fa-galactic-republic"></i>
+                    <span>Audi</span>
+                </button>
+                <div class="collapse-content">
+                    <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                        <i class="fa-brands fa-cmplid"></i>
+                        <span>Lexus</span>
+                    </button>
+                    <button class="cateBtn" onclick="location.href='sports-cars.html';">
+                        <i class="fa-brands fa-bilibili"></i>
+                        <span>Ford</span>
+                    </button>
+                    <button class="cateBtn" onclick="location.href='car-details-max.html';">
+                        <i class="fa-brands fa-space-awesome"></i>
+                        <span>Tesla</span>
+                    </button>
+                </div>                
+            </div>
+            <button id="brandCollapseBtn" onclick="location.href='#searchBar';">Show more</button>
+        </div>
+        
+        <div class="category-line-end"></div>
+    </div>
+    
+    
+
+    <!-- Products -->
+    <main class="product-container">
+        <div class="carousel-wrapper">
+            <h3 class="carousel-title">Featured Sports Car</h3>
+            <div class="carousel">
+                <button class="carousel-button prev">&lt;</button>
+                <div class="carousel-content">
+                    <!-- Set of 3 products -->
+                    <div class="carousel-slide">
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 1">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 1</h2>
+                                <p class="price">$29,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/sport-2.png" alt="Sedan Model 2">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 2</h2>
+                                <p class="price">$31,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 3">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 3</h2>
+                                <p class="price">$33,999</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Set of 3 products -->
+                    <div class="carousel-slide">
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/sport-3.png" alt="Sedan Model 1">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 1</h2>
+                                <p class="price">$29,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 2">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 2</h2>
+                                <p class="price">$31,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 3">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 3</h2>
+                                <p class="price">$33,999</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Set of 3 products -->
+                    <div class="carousel-slide">
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 1">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 1</h2>
+                                <p class="price">$29,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 2">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 2</h2>
+                                <p class="price">$31,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/carDemo1.png" alt="Sedan Model 3">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 3</h2>
+                                <p class="price">$33,999</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-button next">&gt;</button>
+            </div>
+        </div>
+
+        <!-- Repeating Carousel -->
+        <div class="carousel-wrapper">
+            <h3 class="carousel-title">Family Essentials</h3>
+            <div class="carousel">
+                <button class="carousel-button prev">&lt;</button>
+                <div class="carousel-content">
+                    <!-- Set of 3 products -->
+                    <div class="carousel-slide">
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 1">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 1</h2>
+                                <p class="price">$29,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 2">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 2</h2>
+                                <p class="price">$31,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 3">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 3</h2>
+                                <p class="price">$33,999</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Set of 3 products -->
+                    <div class="carousel-slide">
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 1">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 1</h2>
+                                <p class="price">$29,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 2">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 2</h2>
+                                <p class="price">$31,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 3">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 3</h2>
+                                <p class="price">$33,999</p>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Set of 3 products -->
+                    <div class="carousel-slide">
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 1">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 1</h2>
+                                <p class="price">$29,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 2">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 2</h2>
+                                <p class="price">$31,999</p>
+                            </div>
+                        </a>
+                        <a href="car-details.html" class="product">
+                            <div class="img-con">
+                                <img src="car_img/car-black-tran.png" alt="Sedan Model 3">
+                            </div>
+                            <div class="product-content">
+                                <h2>Sedan Model 3</h2>
+                                <p class="price">$33,999</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-button next">&gt;</button>
+            </div>
+        </div>
+    </main>  
+    <section class="testimonials">
+        <div class="testimonials-header">
+            <h2>What our clients say</h2>
+            <p>Experience the Legend Motors difference through our customers' stories</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p>"The attention to detail and personalized service at Legend Motors exceeded all my expectations. My new Model GX is simply perfect."</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-author">
+                    <img src="../publicMedia/client-1.jpeg" alt="Sarah Chen">
+                    <div class="author-info">
+                        <h4>Terrence Lo</h4>
+                        <p>CEO, Car Innovations</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p>"From the initial consultation to delivery, Legend Motors provided an unmatched car buying and insurance experience. Truly world-class service."</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-author">
+                    <img src="../publicMedia/client-2.png" alt="Michael Wong">
+                    <div class="author-info">
+                        <h4>Leo Sir</h4>
+                        <p>Investment Director</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <div class="quote-icon">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <p>"The customization options and attention to detail are remarkable. Legend Motors truly understands what automotive owner needs excellence."</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <div class="testimonial-author">
+                    <img src="../publicMedia/client-3.png" alt="Emily Lau">
+                    <div class="author-info">
+                        <h4>Charlie Kenneth</h4>
+                        <p>Female Engineer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="footer-placeholder"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#header-placeholder").load("header.html", function() {
+            $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+            $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+            });
+            $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+                initializeSidebar();
+            });
+            $("#footer-placeholder").load("footer.html");
+            $('#search-input').on('keypress', function(event) {
+                if (event.which === 13) { // Enter key
+                event.preventDefault(); // Prevent any default action
+                const query = $(this).val().trim();
+                if (query) {
+                    // Redirect to search-car.html with query parameter
+                    window.location.href = `search-car.html`;
+                }
+            }
+            });
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,188 @@
+
+    <style>
+
+        .l-realise-slider-card-block {
+            position: absolute;
+            transform-style: preserve-3d;
+            perspective: 800px;
+            transition: transform 0.4s ease; /* Smooth transition for centering */
+            display: none; /* Initially hidden */
+        }
+
+        .card {
+            position: absolute;
+            display: block;
+            width: 900px;
+            height: 500px;
+            transition: all .4s;
+            border-radius: 4px;
+        }
+
+        .card-block-wrap {
+            position: absolute;
+         
+            width: 500px;
+            height: 289px;
+            transform-style: preserve-3d;
+            z-index: 999;
+        }
+
+        .a {
+            transform: translate3d(70px, -80px, -50px);
+            opacity: .6;
+            left: -500px;
+            top: -300px;
+        }
+
+        .b {
+            transform: translate3d(110px, 80px, -60px);
+            opacity: .1;
+            left: -500px;
+            top: -300px;
+        }
+
+        .c {
+            transform: translate3d(0px, 0px, 0px);
+            opacity: 1;
+            box-shadow: 0 20px 50px rgba(0, 34, 45, 0.5);
+            left: -500px;
+            top: -300px;
+        }
+
+        #first {
+            background-color: blue;
+        }
+
+        #second {
+            background-color: green;
+        }
+
+        #third {
+            background-color: red;
+        }
+
+        .btn-wrap {
+            position: absolute;
+            z-index: 20;
+            bottom: -5px;
+            left: 385px;
+        }
+
+        .btn {
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 10px;
+            height: 10px;
+            transition: all .4s ease-in-out;
+            opacity: .5;
+            border-radius: 50%;
+            background-color: #cbcbcb;
+        }
+
+        .focus {
+            width: 15px;
+            height: 15px;
+            transform: translate(-3px, -3px);
+            opacity: 1;
+            background-color: #5924c3;
+        }
+
+        #one {
+            left: 0;
+        }
+
+        #two {
+            left: 25px;
+        }
+
+        #three {
+            left: 50px;
+        }
+
+        /* Center button styles */
+        .center-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .center-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<body>
+    <div>
+        <button class="center-button" id="showCarouselBtn">Show Carousel</button>
+        <div class="l-realise-slider-card-block" id="carousel">
+            <div class="card-block-wrap">
+                <div class="card c" id="first"></div>
+                <div class="card a" id="second"></div>
+                <div class="card b" id="third"></div>
+        
+                <div class="btn-wrap">
+                    <a href="javascript:void(0);" class="btn focus" id="one"></a>
+                    <a href="javascript:void(0);" class="btn" id="two"></a>
+                    <a href="javascript:void(0);" class="btn" id="three"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var shadow = '0 20px 50px rgba(0,34,45,0.5)';
+
+        function styles(item_id, x, y, z , opacity, shadow){
+            $(item_id).css({
+                transform: 'translate3d('+ x +'px, ' + y + 'px, ' + z +'px) ',
+                opacity: opacity,
+                'box-shadow': shadow
+            });
+        }
+
+        $('#one').click(function(){
+            $('#one').addClass('focus');
+            $('#two').removeClass('focus');
+            $('#three').removeClass('focus');
+            styles('#first', 0, 0, 0, 1, shadow);
+            styles('#second', 70, -80, -50, 0.6, 'none');
+            styles('#third', 110, 80, -60, 0.1, 'none');
+        }); 
+
+        $('#two').click(function(){
+            $('#one').removeClass('focus');
+            $('#two').addClass('focus');
+            $('#three').removeClass('focus');
+            styles('#first', 110, 80, -60, 0.1, 'none');
+            styles('#second', 0, 0, 0, 1, shadow);
+            styles('#third', 70, -80, -50, 0.6, 'none');
+        });
+
+        $('#three').click(function(){
+            $('#one').removeClass('focus');
+            $('#two').removeClass('focus');
+            $('#three').addClass('focus');
+            styles('#first', 70, -80, -50, 0.6, 'none');
+            styles('#second', 110, 80, -60, 0.1, 'none');
+            styles('#third', 0, 0, 0, 1, shadow);
+        });
+
+        // Show the carousel on button click
+        $('#showCarouselBtn').click(function() {
+            $('#carousel').css('display', 'inline-block'); // Show the carousel
+            $('#carousel').css({
+                transform: 'translate(-50%, -50%)', // Center horizontally and vertically
+                position: 'absolute',
+                top: '50%',
+                left: '50%'
+            });
+        });
+    </script>
+</body>

@@ -1,0 +1,104 @@
+<!-- header.html -->
+<header> 
+    <div class="header-content">
+        <a href="category.html"><img id="LMlogo" src="../publicMedia/Legend-Logo.png"></a>
+        <nav>
+            <ul>
+              <li><a href="staff-manage-order.html" class="menu-link">Staff Temp Link</a></li>
+                <li><a href="category.html" class="menu-link">Home</a></li>
+                <li><a href="../customerPart/UserHome.html" class="menu-link">Car Insurance</a></li>
+                <li><a href="track-order.html" class="menu-link">Track Order</a></li>
+                <li><a href="#" class="menu-link" id="btnOpenLogin" type="button">Login</a></li>
+                <li><a href="#" class="cart-link">
+                        <div class="wishlist-icon-container">
+                            <i class="fa fa-car" id="wishlist-icon"></i>
+                            <span class="wishlist-count">0</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>   
+
+<div id="login-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed z-50 bg-black bg-opacity-50  w-full md:inset-0 h-[calc(100%-1rem)]">
+<div id="interLogin" class="flex items-center justify-center h-screen">
+<div class="relative px-32 w-[500px] bg-white shadow rounded-3xl sm:p-2 ">
+<div class="max-w-md mx-auto">
+  <div class="flex items-center space-x-5 justify-center">
+    <img src="../publicMedia/Legend-Logo.png" width="100px">
+  </div>
+  <h2 class="text-center text-xl font-bold mb-4">Customer Login</h2>
+  <div class="mt-5">
+    <label class="font-semibold text-sm text-gray-600 pb-1 block" for="login">E-mail</label>
+    <input class="border border-blue-300 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" type="text" id="login"/>
+    <label class="font-semibold text-sm text-gray-600 pb-1 block" for="password">Password</label>
+    <input class="border border-blue-300 rounded-lg px-3 py-2 mt-1 mb-5 text-sm w-full" type="password" id="password"/>
+  </div>
+  <div id="error-message" class="flex justify-center hidden">
+    <span class="text-red-400 top-0">The Email or password is incorrect</span>
+  </div>
+    <div class="text-right mb-4">
+    <a class="text-xs font-display font-semibold text-gray-500 hover:text-gray-600 cursor-pointer" href="#">Forgot Password?</a>
+  </div>
+  <button class="flex items-center justify-center py-2 my-4 border bg-white hover:bg-gray-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg">
+    <img src="../customerPart/assets/img/google_icon.png" width="20px">
+    <span class="ml-2">Sign in with Google</span>
+  </button>
+  <button class="flex items-center justify-center py-2 my-4 border bg-white hover:bg-gray-200 text-gray-700 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md rounded-lg mt-4">
+    <img src="../customerPart/assets/img/apple_icon.png" width="20px">
+    <span class="ml-2">Sign in with Apple</span>
+  </button>
+  <div class="mt-5">
+    <button id="loginButton" class="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none rounded-lg" type="submit">
+      Log in
+    </button>
+  </div>
+  <div class="flex items-center justify-between mt-4">
+    <span class="w-1/5 border-b md:w-1/4"></span>
+    <a class="text-xs text-gray-500 uppercase hover:underline" href="register_client.html">or sign up</a>
+    <span class="w-1/5 border-b md:w-1/4"></span>
+  </div>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+//login function
+$('#loginButton').on('click', function() {
+
+    const email = $('#login').val();
+    const password = $('#password').val();
+    const errorMessage = $('#error-message');
+
+    if (email === 'ken@vtc.com' && password === 'Aa123456') {
+        window.location.href = './UserHome.html';
+    } else {
+
+        errorMessage.removeClass('hidden');
+        errorMessage.addClass('block');
+        setTimeout(function() {
+          errorMessage.removeClass('block');
+          errorMessage.addClass('hidden');
+        }, 2000); 
+    }
+}); 
+// Get the modal
+var modal = document.getElementById("login-modal");
+var interLogin = document.getElementById('interLogin');
+// Get the button that opens the modal
+var btn = document.getElementById("btnOpenLogin");
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+modal.classList.remove("hidden");
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == interLogin) {
+modal.classList.add("hidden");
+}
+}
+</script>

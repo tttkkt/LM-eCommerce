@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sport Cars - Legend Motors</title>
+    <script src="js/wishlist.js"></script>
+    <script src="js/compare.js" defer></script>
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link rel="stylesheet" href="css/sports-cars_style.css">
+    <link rel="stylesheet" href="css/compare_style.css">
+    <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Carousel Background Overlay */
+        .carousel-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(237, 235, 246, 0.7); /* Semi-transparent black */
+            backdrop-filter: blur(5px); /* Blur effect */
+            z-index: 999; /* Behind the carousel */
+        }
+        /* Carousel Styles */
+        .carousel {
+            display: none; /* Initially hidden */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
+
+        .l-realise-slider-card-block {
+            transform-style: preserve-3d;
+            perspective: 800px;
+            transition: transform 0.4s ease; /* Smooth transition for centering */
+            display: none; /* Initially hidden */
+        }
+
+        .card {
+            position: absolute;
+            display: block;
+            width: 900px;
+            height: 500px;
+            transition: all .4s;
+            border-radius: 4px;
+        }
+
+        .card-block-wrap {
+            position: absolute;
+         
+            width: 500px;
+            height: 289px;
+            transform-style: preserve-3d;
+            z-index: 999;
+        }
+
+        .a {
+            transform: translate3d(70px, -80px, -50px);
+            opacity: .6;
+            left: -500px;
+            top: -300px;
+        }
+
+        .b {
+            transform: translate3d(110px, 80px, -60px);
+            opacity: .1;
+            left: -500px;
+            top: -300px;
+        }
+
+        .c {
+            transform: translate3d(0px, 0px, 0px);
+            opacity: 1;
+            box-shadow: 0 20px 50px rgba(0, 34, 45, 0.5);
+            left: -500px;
+            top: -300px;
+        }
+
+        #first {
+            background-color: #f5f8fce4;
+        }
+
+        #second {
+            background-color: #fdfffbe6;
+        }
+
+        #third {
+            background-color: #fffbfcea;
+        }
+
+        .btn-wrap {
+            position: absolute;
+            z-index: 20;
+            bottom: -5px;
+            left: 385px;
+        }
+
+        .btn-wrap {
+            position: absolute;
+            z-index: 20;
+            bottom: -5px;
+            left: 385px;
+        }
+
+        .btn {
+            position: absolute;
+            top: 0;
+            display: block;
+            width: 10px;
+            height: 10px;
+            transition: all .4s ease-in-out;
+            opacity: .5;
+            border-radius: 50%;
+            background-color: #cbcbcb;
+        }
+
+        .focus {
+            width: 15px;
+            height: 15px;
+            transform: translate(-3px, -3px);
+            opacity: 1;
+            background-color: #5924c3;
+        }
+
+        #one {
+            left: 0;
+        }
+
+        #two {
+            left: 25px;
+        }
+
+        #three {
+            left: 50px;
+        }
+
+        .card img {
+        border-radius: 8px; /* Rounded image corners */
+        margin-bottom: 15px; /* Space below the image */
+        }
+    </style>
+    <style>
+        /* Card Container */
+        .card {
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Center items vertically */
+            padding: 20px; /* Inner padding */
+            margin: 20px auto; /* Center the card */
+         }
+    
+        .card:hover {
+            transform: scale(1.02); /* Slightly enlarge on hover */
+        }
+    
+        /* Image Styling */
+        .card img {
+            width: 40%; /* Set fixed width for the image */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px; /* Rounded image corners */
+            margin-right: 20px; /* Space between image and text */
+        }
+    
+        /* Text Container */
+        .text-container {
+            flex: 1; /* Take remaining space */
+        }
+        
+        /* Title Styling */
+        .text-container h3 {
+            font-size: 26px; /* Increased title size for better emphasis */
+            font-weight: 700; /* Bold weight for a stronger presence */
+            color: #2c3e50; /* Darker shade for a more elegant look */
+            margin: 15px 0; /* Increased margin for better spacing */
+            text-transform: uppercase; /* Uppercase for a modern feel */
+            letter-spacing: 1px; /* Slight spacing between letters */
+        }
+        
+        /* Description Styling */
+        .text-container p {
+            font-size: 14.5px; /* Increased description size for readability */
+            color: #181717; /* Slightly darker gray for better contrast */
+            margin: 10px 0; /* Margin above and below description */
+            line-height: 1.6; /* Increased line height for better readability */
+            text-align: justify; /* Justified text for a cleaner look */
+        }
+
+        /* Additional Styling for Emphasis */
+        .text-container p:first-of-type {
+            font-size: 12px; 
+            font-weight: 600; /* Medium weight for the first paragraph */
+            color: #2c3033; /* Blue color for emphasis */
+        }
+    </style>    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="header-placeholder"></div>
+    <div id="wishlist-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <video autoplay muted loop class="hero-video">
+                <source src="../publicMedia/sport-car.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div class="hero-content">
+                <h1>Sport Cars</h1>
+                <p>Unprecedented performance</p>
+            </div>
+        </section>
+        
+        <section class="featured-model">
+            <div class="model-content">
+                <h2>Model 007 GX</h2>
+                <p class="tagline">Pure performance. Pure luxury.</p>
+                <div class="cta-buttons">
+                    <button class="button primary learn-more-btn">Learn more</button>
+                    <a href="car-details.html" class="button secondary">Order now</a>
+                </div>
+            </div>
+            <div class="model-image">
+                <img src="car_img/car-black-tran.png" alt="Tella Model 007">
+            </div>
+        </section>
+
+        <!-- Carousel Section -->
+        <div class="carousel-overlay" id="carouselOverlay"></div>
+        <div class="l-realise-slider-card-block carousel" id="carousel">
+            <div class="card-block-wrap">
+                <!-- First Card -->
+                <div class="card c" id="first">
+                    <img src="../publicMedia/sport-learn-more-2.jpg" alt="Sport Model X" style="width: 500px;"/>
+                    <div class="text-container">
+                        <h3>Speed</h3>
+                        <p>Experience the adrenaline rush as you accelerate from 0 to 100 km/h in just 3.5 seconds. The Sport Model X is engineered for performance, ensuring you feel the thrill of every drive.</p>
+                        <p>With a top speed of 310 km/h, this car doesn’t just get you there; it takes you there in style. Whether on the track or the open road, the Sport Model X delivers a driving experience like no other.</p>
+                    </div>
+                </div>                
+
+                <!-- Second Card -->
+                <div class="card a" id="second">
+                    <img src="../publicMedia/sport-learn-more-3.jpg" alt="GT Series" style="width: 360px;"/>
+                    <div class="text-container">
+                        <h3>Design</h3>
+                        <p>The GT Series combines sleek lines and aerodynamic curves, creating a visually stunning profile that commands attention on any road. Every detail is meticulously crafted to reflect luxury and performance.</p>
+                        <p>From the bold front grille to the sculpted rear, the design is not just about aesthetics; it enhances functionality and performance, ensuring optimal airflow and stability at high speeds.</p>
+                        <p>Step inside to find a driver-focused cockpit that blends advanced technology with premium materials, making every journey an experience of elegance and comfort.</p>
+                    </div>
+                </div>                
+
+                <!-- Third Card -->
+                <div class="card b" id="third">
+                    <img src="../publicMedia/sport-learn-more-1.jpg" alt="Racing Edition" style="width: 360px;"/>
+                    <div class="text-container">
+                        <h3>Seats</h3>
+                        <p>Designed for both comfort and support, the racing-inspired seats of the Racing Edition provide an immersive driving experience. Each seat is engineered to hug your body, ensuring you stay secure during high-speed maneuvers.</p>
+                        <p>Crafted from high-quality materials, these seats feature adjustable settings to accommodate drivers of all sizes, allowing for a personalized fit that enhances comfort on long drives.</p>
+                    </div>
+                </div>               
+
+                <div class="btn-wrap">
+                    <a href="javascript:void(0);" class="btn focus" id="one"></a>
+                    <a href="javascript:void(0);" class="btn" id="two"></a>
+                    <a href="javascript:void(0);" class="btn" id="three"></a>
+                </div>
+            </div>
+        </div>
+
+
+        <section class="models-grid">
+            <div class="model-card">
+                <div class="card-image">
+                    <img src="car_img/sport-1.png" alt="Sport Model X">
+                </div>
+                <div class="card-content">
+                    <h3>Model 007</h3>
+                    <p>Starting at HK$288,000</p>
+                    <a href="" class="learn-more">Learn more ></a>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="card-image">
+                    <img src="car_img/sport-2.png" alt="GT Series">
+                </div>
+                <div class="card-content">
+                    <h3>GT Series</h3>
+                    <p>Starting at HK$366,000</p>
+                    <a href="" class="learn-more">Learn more ></a>
+                </div>
+            </div>
+
+            <div class="model-card">
+                <div class="card-image">
+                    <img src="car_img/sport-3.png" alt="Racing Edition">
+                </div>
+                <div class="card-content">
+                    <h3>Racing Edition</h3>
+                    <p>Starting at HK$428,000</p>
+                    <a href="" class="learn-more">Learn more ></a>
+                </div>
+            </div>
+        </section>
+
+        <section class="compare-section">
+            <h2>Compare Models</h2>
+            <div class="compare-grid">
+                <div class="compare-item">
+                    <img src="car_img/compare-1.png" alt="Model 007">
+                    <h3>Model 007</h3>
+                    <ul>
+                        <li>0-100 km/h: 3.2s</li>
+                        <li>Top Speed: 320 km/h</li>
+                        <li>Range: 511 km</li>
+                    </ul>
+                    <a href="#" class="button secondary">Compare</a>
+                </div>
+
+                <div class="compare-item">
+                    <img src="car_img/compare-2.png" alt="GT Series">
+                    <h3>GT Series</h3>
+                    <ul>
+                        <li>0-100 km/h: 3.0s</li>
+                        <li>Top Speed: 330 km/h</li>
+                        <li>Range: 484 km</li>
+                    </ul>
+                    <a href="#" class="button secondary">Compare</a>
+                </div>
+
+                <div class="compare-item">
+                    <img src="car_img/compare-3.png" alt="Racing Edition">
+                    <h3>Racing Edition</h3>
+                    <ul>
+                        <li>0-100 km/h: 2.8s</li>
+                        <li>Top Speed: 350 km/h</li>
+                        <li>Range: 452 km</li>
+                    </ul>
+                    <a href="#" class="button secondary">Compare</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        $(document).ready(function() {
+            $("#header-placeholder").load("header.html", function() {
+            $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+            $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+        });
+            $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+                initializeSidebar();
+            });
+            $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+    <script>
+            // Show carousel on Learn More button click
+            $('.learn-more-btn').on('click', function(e) {
+                e.preventDefault();
+                $('#carouselOverlay').fadeIn();// Show overlay
+                $('#carousel').fadeIn(); // Show the carousel
+            });
+            $('.learn-more').on('click', function(e) {
+                e.preventDefault();
+                $('#carouselOverlay').fadeIn();// Show overlay
+                $('#carousel').fadeIn(); // Show the carousel
+            });
+
+            // Close carousel on close button click
+            $('#closeCarousel').on('click', function() {
+                $('#carousel').fadeOut(); // Hide the carousel
+            });
+
+            // Hide carousel on background click
+            $('#carouselOverlay').on('click', function() {
+                $(this).fadeOut(); // Hide the overlay
+                $('#carousel').fadeOut(); // Hide the carousel
+            });
+    </script>
+    <script>
+        var shadow = '0 20px 50px rgba(0,34,45,0.5)';
+
+        function styles(item_id, x, y, z , opacity, shadow){
+            $(item_id).css({
+                transform: 'translate3d('+ x +'px, ' + y + 'px, ' + z +'px) ',
+                opacity: opacity,
+                'box-shadow': shadow
+            });
+        }
+
+        $('#one').click(function(){
+            $('#one').addClass('focus');
+            $('#two').removeClass('focus');
+            $('#three').removeClass('focus');
+            styles('#first', 0, 0, 0, 1, shadow);
+            styles('#second', 70, -80, -50, 0.6, 'none');
+            styles('#third', 110, 80, -60, 0.1, 'none');
+        }); 
+
+        $('#two').click(function(){
+            $('#one').removeClass('focus');
+            $('#two').addClass('focus');
+            $('#three').removeClass('focus');
+            styles('#first', 110, 80, -60, 0.1, 'none');
+            styles('#second', 0, 0, 0, 1, shadow);
+            styles('#third', 70, -80, -50, 0.6, 'none');
+        });
+
+        $('#three').click(function(){
+            $('#one').removeClass('focus');
+            $('#two').removeClass('focus');
+            $('#three').addClass('focus');
+            styles('#first', 70, -80, -50, 0.6, 'none');
+            styles('#second', 110, 80, -60, 0.1, 'none');
+            styles('#third', 0, 0, 0, 1, shadow);
+        });
+    </script>
+</body>
+</html>

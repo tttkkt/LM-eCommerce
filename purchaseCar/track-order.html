@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Track Ordere - LM</title>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="js/wishlist.js"></script>
+        <link rel="stylesheet" href="css/track-order.css">
+        <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/nav_style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="wishlist-placeholder"></div>
+    <div class="container">
+        <h1 class="track-title">Track Your Orders</h1>
+        <div class="row py-3">
+            <div class="col-12">
+             <!-- Filters Section -->
+            <div class="filters-section mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <label class="form-label">Order Date</label>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Order Status</label>
+                        <select class="form-select" id="status-filter">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="processing">Processing</option>
+                            <option value="shipped">Shipped</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="cancelled">Cancelled</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+   
+        <div class="accordion">
+            <!-- Orders will be dynamically inserted here -->
+        </div>
+        <!-- Pagination Section -->
+        <div class="pagination-section mt-4">
+            <div class="row align-items-center">
+            <div class="col-md-6">
+                <div class="entries-info">
+                Showing 1 to 5 of 25 orders
+                </div>
+            </div>
+            <div class="col-md-6">
+                <nav aria-label="Order navigation">
+                <ul class="pagination justify-content-end">
+                    <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+                </nav>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <template id="order-template">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <div class="order-summary">
+                    <img class="order-image" src="" alt="Car Image" />
+                    <span class="order-number"></span>
+                    <span class="order-date"></span>
+                    <span class="order-status"></span>
+                    <span class="order-total"></span>
+                </div>                
+                <button class="expand-btn">
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+            </div>
+            <div class="accordion-content">
+                <div class="order-details">
+                    <div class="summary-sections">
+                        <!-- Vehicle Configuration -->
+                        <div class="summary-section">
+                            <h3>Vehicle Configuration</h3>
+                            <div class="vehicle-summary-card">
+                                <div class="summary-vehicle-image"></div>
+                                <div class="vehicle-config-details">
+                                    <h4></h4>
+                                    <p class="vehicle-variant"></p>
+                                    <ul class="vehicle-options"></ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Personal Details -->
+                        <div class="summary-section">
+                            <h3>Personal Information</h3>
+                            <div class="details-grid personal-details"></div>
+                        </div>
+
+                        <!-- Delivery Information -->
+                        <div class="summary-section">
+                            <h3>Delivery Information</h3>
+                            <div class="details-grid delivery-details"></div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="summary-section">
+                            <h3>Payment Information</h3>
+                            <div style="margin-left: 140px;" class="payment-summary">
+                                <div  class="payment-method-info"></div>
+                                <div style="margin-right: 140px;" class="price-breakdown"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+    <script src="js/track-order.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#header-placeholder").load("header.html", function() {
+            $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+            $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+        });
+            $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+                initializeSidebar();
+            });
+        });
+    </script>
+    <div class="col-md-12">
+        <footer id="track-foot">
+            <p>© 2024 Legend Motor Limited. All rights reserved.</p>
+        </footer></div>
+</body>
+
+</html>

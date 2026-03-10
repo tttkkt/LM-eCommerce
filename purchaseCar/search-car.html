@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Search Results - Legend Motors</title>
+    <script src="js/wishlist.js"></script>
+    <link rel="stylesheet" href="css/nav_style.css">
+    <link href="../customerPart/assets/css/output.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+:root {
+    --primary-color: #06c;
+    --secondary-color: #fbfbfd;
+    --text-color: #1d1d1f;
+    --text-secondary: #86868b;
+    --border-color: #d2d2d7;
+    --hover-color: #2997ff;
+    --background-subtle: rgba(0, 0, 0, 0.02);
+    --shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* Base Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.47059;
+    letter-spacing: -0.022em;
+}
+
+/* Search Header */
+.search-header {
+    background-color: var(--secondary-color);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.search-header h1 {
+    margin: 0 0 20px 0;
+    font-size: 48px;
+    font-weight: 600;
+    letter-spacing: -0.003em;
+}
+
+/* Search Tools */
+.search-tools {
+    max-width: 980px;
+    margin: 0 auto 20px;
+    position: relative;
+}
+
+.search-bar-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.search-bar-container:focus-within {
+    border-color: var(--primary-color);
+}
+
+.search-bar {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    outline: none;
+    width: 100%;
+}
+
+.search-button {
+    background: transparent;
+    color: var(--primary-color);
+    border: none;
+    padding: 12px 24px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 400;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    color: var(--hover-color);
+}
+
+    
+        .quick-filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+    
+        .quick-filter-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+    
+        .quick-filter-btn:hover {
+            background: var(--secondary-color);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+    
+        .quick-filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    
+        /* Search Suggestions */
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-top: 5px;
+            display: none;
+            z-index: 1000;
+        }
+    
+        .search-suggestions.active {
+            display: block;
+        }
+    
+        .suggestion-item {
+            padding: 12px 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    
+        .suggestion-item:hover {
+            background-color: var(--secondary-color);
+        }
+    
+        .suggestion-item i {
+            color: #86868b;
+        }
+    
+        @media (max-width: 768px) {
+            .search-tools {
+                padding: 0 20px;
+            }
+            
+            .search-button span {
+                display: none;
+            }
+        }
+    </style>
+    <style>
+        /* Base Styles */
+        :root {
+            --primary-color: #147ce5;
+            --secondary-color: #f5f5f7;
+            --text-color: #1d1d1f;
+            --border-color: #d2d2d7;
+            --shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #fff;
+            color: var(--text-color);
+        }
+
+        /* Search Header */
+        .search-header {
+            background-color: var(--secondary-color);
+            padding: 1px 20px;
+            text-align: center;
+        }
+
+        .search-header h1 {
+            margin: 0 0 20px 0;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        /* Main Container */
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+
+        /* Filters Panel */
+        .filters-panel {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .filter-section {
+            margin-bottom: 25px;
+        }
+
+        .filter-section h3 {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        /* Filter Options */
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .filter-option input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--primary-color);
+        }
+
+        .filter-option label {
+            font-size: 14px;
+            color: var(--text-color);
+        }
+
+        /* Price Range Slider */
+        .price-range {
+            padding: 10px 0;
+        }
+
+        .range-slider {
+            width: 100%;
+            margin: 10px 0;
+        }
+
+        .price-inputs {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .price-inputs input {
+            width: 100px;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+
+        /* Results Section */
+        .results-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sort-dropdown {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: #fff;
+            font-size: 14px;
+        }
+
+        /* Car Grid */
+        .car-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .car-card {
+            background-color: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .car-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .car-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .car-details {
+            padding: 15px;
+        }
+
+        .car-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+        }
+
+        .car-specs {
+            display: flex;
+            gap: 15px;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .car-price {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(----text-color);
+        }
+
+        /* Active Filters */
+        .active-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .filter-tag {
+            background-color: var(--secondary-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-tag button {
+            border: none;
+            background: none;
+            color: var(--text-color);
+            cursor: pointer;
+            padding: 0;
+            font-size: 12px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .search-container {
+                grid-template-columns: 250px 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filters-panel {
+                position: fixed;
+                left: -100%;
+                top: 0;
+                height: 100vh;
+                width: 280px;
+                z-index: 1000;
+                transition: left 0.3s ease;
+            }
+
+            .filters-panel.active {
+                left: 0;
+            }
+
+            .mobile-filter-toggle {
+                display: block;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <style>
+        /* Search */
+        .searchbar-container {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center
+        }
+
+        .search {
+        position: relative;
+        }
+
+        .search input {
+        width: 550px;
+        height: 48px;
+        padding: 15px 15px 10px 45px;
+        font-size: 17px;
+        border: 1px solid #86868B;
+        border-radius: 8px;
+        background-color: #ffffff;
+        transition: all 0.3s ease;
+        }
+
+        .search-icon {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #86868B;
+        z-index: 1;
+        }
+
+        .search label {
+        opacity: 1;
+        font-size: 110%;
+        position: absolute;
+        left: 47px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #86868B;
+        transition: all 0.14s ease;
+        pointer-events: none;
+        }
+
+        .search input:focus + label,
+        .search input:not(:placeholder-shown) + label {
+        top: 12px;
+        left: 40px;
+        font-size: 12px;
+        background-color: white;
+        padding: 0 5px;
+        }
+
+        .search input:focus {
+        outline: none;
+        border: 1.8px solid #0066CC;
+        font-size: 18px;
+        }
+        /* Spotlight effect */
+        .spotlight::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(107, 107, 107, 0.16);
+        z-index: 9;
+        opacity: 1;
+        transition: all 0.14s ease;
+        pointer-events: none;
+        }
+        .spotlight .search {
+        position: relative;
+        z-index: 10;
+        }
+
+        .clear-button {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #86868B;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 18px;
+            display: none;
+            z-index: 1;
+            border-radius: 50%;
+        }
+        .clear-button:hover {
+            color: #9f9fa4;
+        }
+
+        .search input:not(:placeholder-shown) ~ .clear-button {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="wishlist-placeholder"></div>
+    <div class="search-header">
+        <h3 style="font-weight: 100; padding: 10px;">We found results for you</h3>
+        
+        <div class="search-tools">
+            <div class="searchbar-container">
+                <div class="search" id="searchBar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="" value="BMW X">
+                    <label for="search-input">Search vehicles</label>
+                    <button class="clear-button" id="clear-button" aria-label="Clear search">
+                    <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+    
+            <!-- Search Suggestions -->
+            <div class="search-suggestions" id="searchSuggestions">
+                <div class="suggestion-item">
+                    <i class="fas fa-car"></i>
+                    <span>BMW X5</span>
+                </div>
+                <div class="suggestion-item">
+                    <i class="fas fa-car"></i>
+                    <span>Mercedes GLE</span>
+                </div>
+                <div class="suggestion-item">
+                    <i class="fas fa-history"></i>
+                    <span>Recent: Audi Q7</span>
+                </div>
+            </div>
+    
+            <div class="quick-filters">
+                <button class="quick-filter-btn active">All Cars</button>
+                <button class="quick-filter-btn">New Arrivals</button>
+                <button class="quick-filter-btn">Special Offers</button>
+                <button class="quick-filter-btn">Electric Vehicles</button>
+                <button class="quick-filter-btn">Luxury Collection</button>
+            </div>
+        </div>
+    
+        <div class="active-filters">
+            <div class="filter-tag">
+                SUV <button><i class="fas fa-times"></i></button>
+            </div>
+            <div class="filter-tag">
+                BMW <button><i class="fas fa-times"></i></button>
+            </div>
+            <div class="filter-tag">
+                $30,000 - $50,000 <button><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-container">
+        <aside class="filters-panel">
+            <div class="filter-section">
+                <h3>Vehicle Type</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="sedan" name="type">
+                        <label for="sedan">Sedan</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="suv" name="type" checked>
+                        <label for="suv">SUV</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="sports" name="type">
+                        <label for="sports">Sports Car</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="electric" name="type">
+                        <label for="electric">Electric</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="hybrid" name="type">
+                        <label for="hybrid">Hybrid</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Brand</h3>
+                <div class="filter-options">
+                    <div class="filter-option">
+                        <input type="checkbox" id="bmw" name="brand" checked>
+                        <label for="bmw">BMW</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="mercedes" name="brand">
+                        <label for="mercedes">Mercedes-Benz</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="audi" name="brand">
+                        <label for="audi">Audi</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="lexus" name="brand">
+                        <label for="lexus">Lexus</label>
+                    </div>
+                    <div class="filter-option">
+                        <input type="checkbox" id="tesla" name="brand">
+                        <label for="tesla">Tesla</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-range">
+                    <input type="range" class="range-slider" min="0" max="200000" step="1000">
+                    <div class="price-inputs">
+                        <input type="number" placeholder="Min" value="30000">
+                        <span>-</span>
+                        <input type="number" placeholder="Max" value="50000">
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="results-section">
+            <div class="results-header">
+                <p>Showing 24 results</p>
+                <select class="sort-dropdown">
+                    <option value="relevance">Sort by: Relevance</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="newest">Newest First</option>
+                </select>
+            </div>
+
+            <div class="car-grid">
+                <!-- Car Card 1 -->
+                <div class="car-card">
+                    <img src="car_img/carDemo1.png" alt="BMW X5" class="car-image">
+                    <div class="car-details">
+                        <h3 class="car-title">BMW X5 xDrive40i</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-gas-pump"></i> Hybrid</span>
+                        </div>
+                        <p class="car-price">$45,999</p>
+                    </div>
+                </div>
+
+                <!-- Car Card 2 -->
+                <div class="car-card">
+                    <img src="car_img/sport-2.png" alt="BMW X3" class="car-image">
+                    <div class="car-details">
+                        <h3 class="car-title">BMW X3 M40i</h3>
+                        <div class="car-specs">
+                            <span><i class="fas fa-calendar"></i> 2024</span>
+                            <span><i class="fas fa-gas-pump"></i> Gasoline</span>
+                        </div>
+                        <p class="car-price">$38,999</p>
+                    </div>
+                </div>
+
+                <!-- Add more car cards as needed -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Price Range Slider
+        const rangeSlider = document.querySelector('.range-slider');
+        const minInput = document.querySelector('.price-inputs input:first-child');
+        const maxInput = document.querySelector('.price-inputs input:last-child');
+
+        // Update range slider when inputs change
+        minInput.addEventListener('input', updateSlider);
+        maxInput.addEventListener('input', updateSlider);
+
+        function updateSlider() {
+            const min = parseInt(minInput.value);
+            const max = parseInt(maxInput.value);
+            // Add logic to update the slider and filter results
+        }
+
+        // Filter tags
+        document.querySelectorAll('.filter-tag button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.target.closest('.filter-tag').remove();
+                // Add logic to update filters
+            });
+        });
+
+        // Mobile filter toggle
+        if (window.innerWidth <= 768) {
+            const filterPanel = document.querySelector('.filters-panel');
+            const toggleButton = document.createElement('button');
+            toggleButton.className = 'mobile-filter-toggle';
+            toggleButton.innerHTML = '<button class="mobile-filter-button"><i class="fas fa-sliders-h"></i><span>Filters</span></button>';
+            document.querySelector('.results-header').prepend(toggleButton);
+
+            toggleButton.addEventListener('click', () => {
+                filterPanel.classList.toggle('active');
+            });
+        }
+    </script>
+    <script>
+        // Search Functionality
+        const searchInput = document.getElementById('search-input');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+    
+        searchInput.addEventListener('focus', () => {
+            searchSuggestions.classList.add('active');
+        });
+    
+        searchInput.addEventListener('blur', (e) => {
+            // Small delay to allow clicking on suggestions
+            setTimeout(() => {
+                searchSuggestions.classList.remove('active');
+            }, 200);
+        });
+    
+        searchInput.addEventListener('input', (e) => {
+            if (e.target.value) {
+                searchSuggestions.classList.add('active');
+            } else {
+                searchSuggestions.classList.remove('active');
+            }
+        });
+    
+        // Quick Filters
+        const quickFilterButtons = document.querySelectorAll('.quick-filter-btn');
+        quickFilterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                quickFilterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchContainer = document.querySelector('.searchbar-container');
+            const searchInput = document.querySelector('#search-input');
+            const clearButton = document.querySelector('#clear-button');
+        
+        searchInput.addEventListener('focus', () => {
+            searchContainer.classList.add('spotlight');
+        });
+
+        searchInput.addEventListener('blur', () => {
+            searchContainer.classList.remove('spotlight');
+        });
+
+        clearButton.addEventListener('click', () => {
+            searchInput.value = '';
+            searchInput.focus();
+            updateClearButtonVisibility();
+        });
+
+        searchInput.addEventListener('input', updateClearButtonVisibility);
+
+        function updateClearButtonVisibility() {
+            if (searchInput.value) {
+            clearButton.style.display = 'block';
+            } else {
+            clearButton.style.display = 'none';
+            }
+        }
+
+        updateClearButtonVisibility();
+        });
+    </script>
+    <div id="footer-placeholder"></div>
+    <script>
+        $(document).ready(function() {
+            $("#header-placeholder").load("header.html", function() {
+            $("#homeTag").removeClass('text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700');
+            $("#homeTag").addClass('text-white bg-blue-700 md:bg-transparent md:text-blue-700 md:p-0 md:text-blue-500');
+        });
+            $("#wishlist-placeholder").load("wishlist-sidebar.html", function() {
+                initializeSidebar();
+            });
+            $("#footer-placeholder").load("footer.html");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<style>
+.enhanced-footer {
+    background-color: #f5f5f7;
+    padding: 60px 0 20px;
+    color: #1d1d1f;
+    font-size: 14px;
+}
+
+.footer-content {
+    max-width: 1110px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-sections {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.footer-section h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #1d1d1f;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #515154;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #147ce5;
+}
+
+.contact-section .contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-section .contact-info p {
+    margin-bottom: 10px;
+    color: #515154;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #515154;
+    font-size: 18px;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: #147ce5;
+}
+
+.newsletter-section {
+    border-top: 1px solid #d2d2d7;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.newsletter-section h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.newsletter-section p {
+    color: #515154;
+    margin-bottom: 20px;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 10px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #d2d2d7;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.newsletter-form input:focus {
+    border-color: #147ce5;
+}
+
+.newsletter-form button {
+    padding: 12px 25px;
+    background-color: #147ce5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.newsletter-form button:hover {
+    background-color: #0e63b9;
+}
+
+.footer-bottom {
+    border-top: 1px solid #d2d2d7;
+    padding-top: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.footer-legal {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-legal a {
+    color: #515154;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.footer-legal a:hover {
+    color: #147ce5;
+}
+
+.footer-copyright {
+    color: #86868b;
+    font-size: 12px;
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .footer-sections {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .contact-section {
+        grid-column: span 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-sections {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-section {
+        grid-column: span 2;
+    }
+    
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .footer-legal {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-section {
+        grid-column: span 1;
+    }
+}
+
+</style>
+<footer class="enhanced-footer">
+    <div class="footer-content">
+        <!-- Main Footer Sections -->
+        <div class="footer-sections">
+            <div class="footer-section">
+                <h3>Vehicles</h3>
+                <ul>
+                    <li><a href="sports-cars.html">Sedans</a></li>
+                    <li><a href="sports-cars.html">SUVs</a></li>
+                    <li><a href="sports-cars.html">Electric Vehicles</a></li>
+                    <li><a href="sports-cars.html">Hybrid Cars</a></li>
+                    <li><a href="sports-cars.html">Sports Cars</a></li>
+                    <li><a href="car-details-max.html">Luxury Collection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Services</h3>
+                <ul>
+                    <li><a href="#">Financing</a></li>
+                    <li><a href="../customerPart/InsuranceServices.html">Insurance</a></li>
+                    <li><a href="#">Maintenance</a></li>
+                    <li><a href="#">Test Drive</a></li>
+                    <li><a href="#">Trade-In Value</a></li>
+                    <li><a href="#">Vehicle Protection</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Support</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Find a Dealer</a></li>
+                    <li><a href="#">Schedule Service</a></li>
+                    <li><a href="#">Owner's Manual</a></li>
+                    <li><a href="#">Roadside Assistance</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>About Legend Motors</h3>
+                <ul>
+                    <li><a href="#">Our Story</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">News & Events</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Corporate Responsibility</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section contact-section">
+                <h3>Connect With Us</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> +852 2595 8101</p>
+                    <p><i class="fas fa-envelope"></i> info@legendmotors.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 322 Java Road, Central, Hong Kong</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="X (formerly Twitter)"><i class="fab fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Subscription -->
+        <div class="newsletter-section">
+            <h3>Stay Updated</h3>
+            <p>Subscribe to our newsletter for exclusive offers and automotive news.</p>
+            <div class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter">
+                <button type="submit">Subscribe</button>
+            </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div class="footer-bottom">
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Accessibility</a>
+                <a href="#">Site Map</a>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2024 Legend Motors Limited. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+</footer>

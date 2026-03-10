@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading...</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f4f9;
+            font-family: Arial, sans-serif;
+        }
+
+        .loading-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #e0e0e0;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .loading-text {
+            color: #555;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Loading...</div>
+    </div>
+
+    <script>
+        // Redirect to the specified URL after 2 seconds (2000 milliseconds)
+        // You can adjust the time or set it to 0 for an immediate redirect
+        setTimeout(function() {
+            window.location.href = '/purchaseCar/category.html';
+        }, 2000);
+    </script>
+
+</body>
+</html>
